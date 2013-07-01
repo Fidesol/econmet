@@ -1,0 +1,2344 @@
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 353, in analisys
+    generate_report(clinical)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 284, in generate_report
+    matches = get_best_matches(inferences)
+TypeError: get_best_matches() takes exactly 2 arguments (1 given)
+Internal Server Error: /econmet/clinical/308/report
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 254, in thumb_view
+    'data_object' : get_data_object(clinical, {'fields': ['id','history_number'], 'm2m': [nav_field_active]}),
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 49, in get_data_object
+    dict[element] = get_data_report(object.__getattribute__('report'), models.get_model('econmet', 'report'))
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 70, in get_data_report
+    for illness in list(obj.illness.all()):
+KeyError: 'name'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 340, in analisys
+    clinical = Clinical.objects.get(id=request.POST['clinical_id'])
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/datastructures.py", line 258, in __getitem__
+    raise MultiValueDictKeyError("Key %r not found in %r" % (key, self))
+MultiValueDictKeyError: "Key 'clinical_id' not found in <QueryDict: {}>"
+Internal Server Error: /econmet/symptoms
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 327, in symptoms
+    'data' : get_values(fields, SymptomsParameterTranslate),
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 194, in get_values
+    name = field.decode('utf8')
+  File "/usr/lib/python2.7/encodings/utf_8.py", line 16, in decode
+    return codecs.utf_8_decode(input, errors, True)
+UnicodeEncodeError: 'ascii' codec can't encode character u'\xcd' in position 9: ordinal not in range(128)
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 136, in get_response
+    response = response.render()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 104, in render
+    self._set_content(self.rendered_content)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 79, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 57, in resolve_template
+    return loader.get_template(template)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 138, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: registration/login.html
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 136, in get_response
+    response = response.render()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 104, in render
+    self._set_content(self.rendered_content)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 79, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 57, in resolve_template
+    return loader.get_template(template)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 138, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: registration/login.html
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 136, in get_response
+    response = response.render()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 104, in render
+    self._set_content(self.rendered_content)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 79, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 57, in resolve_template
+    return loader.get_template(template)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 138, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: home.html
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 136, in get_response
+    response = response.render()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 104, in render
+    self._set_content(self.rendered_content)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 79, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 57, in resolve_template
+    return loader.get_template(template)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 138, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: home.html
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 136, in get_response
+    response = response.render()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 104, in render
+    self._set_content(self.rendered_content)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 79, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 57, in resolve_template
+    return loader.get_template(template)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 138, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: base.html
+Internal Server Error: /econmet/accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 136, in get_response
+    response = response.render()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 104, in render
+    self._set_content(self.rendered_content)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 79, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 57, in resolve_template
+    return loader.get_template(template)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 138, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: registration/login.html
+Internal Server Error: /econmet/accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 136, in get_response
+    response = response.render()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 104, in render
+    self._set_content(self.rendered_content)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 79, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 57, in resolve_template
+    return loader.get_template(template)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 138, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: registration/login.html
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/locale.py", line 21, in process_request
+    check_path = self.is_language_prefix_patterns_used()
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/locale.py", line 54, in is_language_prefix_patterns_used
+    for url_pattern in get_resolver(None).url_patterns:
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/urls.py", line 33, in <module>
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': theme_selected+'/home.html'}),     #redireccionar a 'login' cuando no este login
+NameError: name 'theme_selected' is not defined
+Internal Server Error: /favicon.ico/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/locale.py", line 21, in process_request
+    check_path = self.is_language_prefix_patterns_used()
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/locale.py", line 54, in is_language_prefix_patterns_used
+    for url_pattern in get_resolver(None).url_patterns:
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/urls.py", line 33, in <module>
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': theme_selected+'/home.html'}),     #redireccionar a 'login' cuando no este login
+NameError: name 'theme_selected' is not defined
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/locale.py", line 21, in process_request
+    check_path = self.is_language_prefix_patterns_used()
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/locale.py", line 54, in is_language_prefix_patterns_used
+    for url_pattern in get_resolver(None).url_patterns:
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/urls.py", line 33, in <module>
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': theme_selected+'/home.html'}),     #redireccionar a 'login' cuando no este login
+NameError: name 'theme_selected' is not defined
+Internal Server Error: /favicon.ico/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/locale.py", line 21, in process_request
+    check_path = self.is_language_prefix_patterns_used()
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/locale.py", line 54, in is_language_prefix_patterns_used
+    for url_pattern in get_resolver(None).url_patterns:
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 328, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 323, in urlconf_module
+    self._urlconf_module = import_module(self.urlconf_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/urls.py", line 33, in <module>
+    url(r'^accounts/login/$', 'django.contrib.auth.views.login', {'template_name': theme_selected+'/home.html'}),     #redireccionar a 'login' cuando no este login
+NameError: name 'theme_selected' is not defined
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 136, in get_response
+    response = response.render()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 104, in render
+    self._set_content(self.rendered_content)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 79, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 57, in resolve_template
+    return loader.get_template(template)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 138, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: econmethome.html
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 136, in get_response
+    response = response.render()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 104, in render
+    self._set_content(self.rendered_content)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 79, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 57, in resolve_template
+    return loader.get_template(template)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 138, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: econmethome.html
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 136, in get_response
+    response = response.render()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 104, in render
+    self._set_content(self.rendered_content)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 79, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 57, in resolve_template
+    return loader.get_template(template)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 138, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: econmethome.html
+Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 136, in get_response
+    response = response.render()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 104, in render
+    self._set_content(self.rendered_content)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 79, in rendered_content
+    template = self.resolve_template(self.template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/response.py", line 57, in resolve_template
+    return loader.get_template(template)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 138, in find_template
+    raise TemplateDoesNotExist(name)
+TemplateDoesNotExist: econmethome.html
+Internal Server Error: /econmet/clinical/298/report
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 259, in thumb_view
+    context_instance=RequestContext(request))
+  File "/usr/local/lib/python2.7/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 169, in render_to_string
+    t = get_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 134, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 42, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 48, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 267, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader_tags.py", line 214, in do_extends
+    nodelist = parser.parse()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 267, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader_tags.py", line 189, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 267, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/defaulttags.py", line 898, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 267, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/defaulttags.py", line 897, in do_if
+    condition = TemplateIfParser(parser, bits).parse()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/defaulttags.py", line 830, in __init__
+    super(TemplateIfParser, self).__init__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/smartif.py", line 163, in __init__
+    mapped_tokens.append(self.translate_token(token))
+  File "/usr/local/lib/python2.7/dist-packages/django/template/smartif.py", line 174, in translate_token
+    return self.create_var(token)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/defaulttags.py", line 833, in create_var
+    return TemplateLiteral(self.template_parser.compile_filter(value), value)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 346, in compile_filter
+    return FilterExpression(token, self)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 557, in __init__
+    filter_func = parser.find_filter(filter_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 352, in find_filter
+    raise TemplateSyntaxError("Invalid filter: '%s'" % filter_name)
+TemplateSyntaxError: Invalid filter: 'len'
+Internal Server Error: /econmet/symptoms
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 313, in symptoms
+    symptoms = Symptoms.objects.create(created = datetime.now())
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 137, in create
+    return self.get_query_set().create(**kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 377, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/base.py", line 463, in save
+    self.save_base(using=using, force_insert=force_insert, force_update=force_update)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/base.py", line 551, in save_base
+    result = manager._insert([self], fields=fields, return_id=update_pk, using=using, raw=raw)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 203, in _insert
+    return insert_query(self.model, objs, fields, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 1576, in insert_query
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/compiler.py", line 910, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/backends/util.py", line 40, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/backends/mysql/base.py", line 114, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib/pymodules/python2.7/MySQLdb/cursors.py", line 174, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib/pymodules/python2.7/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+DatabaseError: (1054, "Unknown column 'alias' in 'field list'")
+Internal Server Error: /econmet/clinical/2/symptoms
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 258, in thumb_view
+    'data_object' : get_data_object(clinical, {'fields': ['id','history_number'], 'm2m': [nav_field_active]}),
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 51, in get_data_object
+    if object.__getattribute__(element).values().__len__() > 0:
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 85, in __len__
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 945, in iterator
+    for row in self.query.get_compiler(self.db).results_iter():
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/compiler.py", line 763, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/compiler.py", line 818, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/backends/util.py", line 40, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/backends/mysql/base.py", line 114, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib/pymodules/python2.7/MySQLdb/cursors.py", line 174, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib/pymodules/python2.7/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+DatabaseError: (1054, "Unknown column 'econmet_symptoms.alias' in 'field list'")
+Internal Server Error: /econmet/clinical/2/symptoms
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 258, in thumb_view
+    'data_object' : get_data_object(clinical, {'fields': ['id','history_number'], 'm2m': [nav_field_active]}),
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 51, in get_data_object
+    if object.__getattribute__(element).values().__len__() > 0:
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 85, in __len__
+    self._result_cache = list(self.iterator())
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 945, in iterator
+    for row in self.query.get_compiler(self.db).results_iter():
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/compiler.py", line 763, in results_iter
+    for rows in self.execute_sql(MULTI):
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/compiler.py", line 818, in execute_sql
+    cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/backends/util.py", line 40, in execute
+    return self.cursor.execute(sql, params)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/backends/mysql/base.py", line 114, in execute
+    return self.cursor.execute(query, args)
+  File "/usr/lib/pymodules/python2.7/MySQLdb/cursors.py", line 174, in execute
+    self.errorhandler(self, exc, value)
+  File "/usr/lib/pymodules/python2.7/MySQLdb/connections.py", line 36, in defaulterrorhandler
+    raise errorclass, errorvalue
+DatabaseError: (1054, "Unknown column 'econmet_symptoms.alias' in 'field list'")
+Internal Server Error: /econmet/symptoms
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 301, in symptoms
+    if request.method == 'POST':
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 131, in get
+    return self.get_query_set().get(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 366, in get
+    % self.model._meta.object_name)
+DoesNotExist: SymptomsParameterTranslate matching query does not exist.
+Internal Server Error: /econmet/clinical
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 206, in clinical
+    clinical = get_dict_data(profile,Clinical,{'illness': ['illnesstranslation__name'], 'analisys': ['created'], 'symptoms': ['alias', 'created'], 'report': ['created']})
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 139, in get_dict_data
+    for info_field_element in info_field[name]:
+NameError: global name 'name' is not defined
+Internal Server Error: /econmet/clinical
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 206, in clinical
+    clinical = get_dict_data(profile,Clinical,{'illness': ['illnesstranslation__name'], 'analisys': ['created'], 'symptoms': ['alias', 'created'], 'report': ['created']})
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 141, in get_dict_data
+    if data_aux[0]:
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 207, in __getitem__
+    return list(qs)[0]
+IndexError: list index out of range
+Internal Server Error: /econmet/clinical
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 206, in clinical
+    clinical = get_dict_data(profile,Clinical,{'illness': ['illnesstranslation__name'], 'analisys': ['created'], 'symptoms': ['alias', 'created'], 'report': ['created']})
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 143, in get_dict_data
+    if data_aux and data_aux[0]:
+NameError: global name 'data_aux' is not defined
+Internal Server Error: /econmet/clinical
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 209, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 216, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 27, in wrapper
+    result = func(*args)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 92, in get_callable
+    lookup_view = getattr(import_module(mod_name), func_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 25, in <module>
+    from plugins.econmet.utils import *
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 146
+    data[field.name] get_info_field_data(object.__getattribute__(model._meta.module_name).get(id = data['id']).__getattribute__(field.name).all())
+                                       ^
+SyntaxError: invalid syntax
+Internal Server Error: /econmet/clinical
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 206, in clinical
+    clinical = get_dict_data(profile,Clinical,{'illness': 'illnesstranslation__name', 'analisys': 'created', 'symptoms': 'created', 'report': 'created'})
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 140, in get_dict_data
+    data[field.name] = object.__getattribute__(model._meta.module_name).get(id = data['id']).__getattribute__(field.name).values_list('id',info_field_element)
+NameError: global name 'info_field_element' is not defined
+Internal Server Error: /econmet/clinical
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 206, in clinical
+    clinical = get_dict_data(profile,Clinical,{'illness': 'illnesstranslation__name', 'analisys': 'created', 'symptoms': 'created', 'report': 'created'})
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 141, in get_dict_data
+    import pdb; pdb.set_trae()
+AttributeError: 'module' object has no attribute 'set_trae'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 353, in analisys
+    parameter = AnalisysParameterTranslation.objects.get(name=element).model
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 131, in get
+    return self.get_query_set().get(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 366, in get
+    % self.model._meta.object_name)
+DoesNotExist: AnalisysParameterTranslation matching query does not exist.
+Internal Server Error: /econmet/report/alias/297
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 416, in report_alias
+    return redirec('/econmet/clinical/'+str(clinical_id))
+NameError: global name 'redirec' is not defined
+Internal Server Error: /econmet/clinical/297/report
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 260, in thumb_view
+    'data_object' : get_data_object(clinical, {'fields': ['id','history_number'], 'm2m': [nav_field_active]}),
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 53, in get_data_object
+    dict[element] = get_data_report(object.__getattribute__('report'), models.get_model('econmet', 'report'))
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 65, in get_data_report
+    if object:
+TypeError: list indices must be integers, not str
+Internal Server Error: /econmet/clinical/297/report
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 265, in thumb_view
+    context_instance=RequestContext(request))
+  File "/usr/local/lib/python2.7/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 169, in render_to_string
+    t = get_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 134, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 42, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 48, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 267, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader_tags.py", line 214, in do_extends
+    nodelist = parser.parse()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 267, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader_tags.py", line 189, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 267, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/defaulttags.py", line 898, in do_if
+    nodelist = parser.parse(('elif', 'else', 'endif'))
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 267, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/defaulttags.py", line 912, in do_if
+    nodelist = parser.parse(('endif',))
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 245, in parse
+    self.empty_variable(token)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 312, in empty_variable
+    raise self.error(token, "Empty variable tag")
+TemplateSyntaxError: Empty variable tag
+Internal Server Error: /econmet/illness
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 156, in illness
+    message =_('Illness ') + new_illness.data['name'] + _(' added sucessfully.')
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/datastructures.py", line 258, in __getitem__
+    raise MultiValueDictKeyError("Key %r not found in %r" % (key, self))
+MultiValueDictKeyError: "Key 'name' not found in <QueryDict: {u'csrfmiddlewaretoken': [u'ZJckzkOayUuJLRBGQqa50iA4i8FUPjah'], u'history_number': [u'Prueba'], u'clinical_id': [u'297']}>"
+Internal Server Error: /econmet/clinical/298/illness
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 259, in thumb_view
+    'data_object' : get_data_object(clinical, {'fields': ['id','history_number'], 'm2m': [nav_field_active]}),
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 58, in get_data_object
+    dict[element] = get_data_illness("", models.get_model('econmet', element))
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 84, in get_data_illness
+    dict['name'] = model._meta.module_name
+TypeError: can only concatenate list (not "ModelBase") to list
+Internal Server Error: /econmet/clinical/6/illness
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 258, in thumb_view
+    'data_object' : get_data_object(clinical, {'fields': ['id','history_number'], 'm2m': [nav_field_active]}),
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 54, in get_data_object
+    dict[element] = get_data(object.__getattribute__(element), models.get_model('econmet', element))
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 105, in get_data
+    dict['data'].append({'name': name, 'value' : object.values()[0][name]})
+KeyError: 'name'
+Internal Server Error: /econmet/clinical/6/illness
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 258, in thumb_view
+    'data_object' : get_data_object(clinical, {'fields': ['id','history_number'], 'm2m': [nav_field_active]}),
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 54, in get_data_object
+    dict[element] = get_data(object.__getattribute__(element), models.get_model('econmet', element))
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 105, in get_data
+    dict['data'].append({'name': name, 'value' : object.values()[0][name]})
+KeyError: 'name'
+Internal Server Error: /econmet/clinical/6/illness
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 258, in thumb_view
+    'data_object' : get_data_object(clinical, {'fields': ['id','history_number'], 'm2m': [nav_field_active]}),
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 54, in get_data_object
+    dict[element] = get_data(object.__getattribute__(element), models.get_model('econmet', element))
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 103, in get_data
+    name = field if type(field) == type('') else field.name
+UnboundLocalError: local variable 'field' referenced before assignment
+Internal Server Error: /econmet/clinical/6/illness
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 258, in thumb_view
+    'data_object' : get_data_object(clinical, {'fields': ['id','history_number'], 'm2m': [nav_field_active]}),
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 54, in get_data_object
+    dict[element] = get_data(object.__getattribute__(element), models.get_model('econmet', element))
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 103, in get_data
+    name = field if type(field) == type('') else field.name
+UnboundLocalError: local variable 'field' referenced before assignment
+Internal Server Error: /econmet/illness
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 156, in illness
+    message =_('Illness ') + new_illness.data['name'] + _(' added sucessfully.')
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/datastructures.py", line 258, in __getitem__
+    raise MultiValueDictKeyError("Key %r not found in %r" % (key, self))
+MultiValueDictKeyError: "Key 'name' not found in <QueryDict: {u'csrfmiddlewaretoken': [u'ZJckzkOayUuJLRBGQqa50iA4i8FUPjah'], u'history_number': [u'L0NR9DOQ'], u'clinical_id': [u'6']}>"
+Internal Server Error: /econmet/illness
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 156, in illness
+    message =_('Illness ') + new_illness.data['name'] + _(' added sucessfully.')
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/datastructures.py", line 258, in __getitem__
+    raise MultiValueDictKeyError("Key %r not found in %r" % (key, self))
+MultiValueDictKeyError: "Key 'name' not found in <QueryDict: {u'csrfmiddlewaretoken': [u'ZJckzkOayUuJLRBGQqa50iA4i8FUPjah'], u'history_number': [u'L0NR9DOQ'], u'clinical_id': [u'6']}>"
+Internal Server Error: /econmet/diagnose
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 427, in diagnose
+    clinical = Clinical.objects.get(id=id)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 131, in get
+    return self.get_query_set().get(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 358, in get
+    clone = self.filter(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 621, in filter
+    return self._filter_or_exclude(False, *args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 639, in _filter_or_exclude
+    clone.query.add_q(Q(*args, **kwargs))
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/query.py", line 1250, in add_q
+    can_reuse=used_aliases, force_having=force_having)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/query.py", line 1099, in add_filter
+    value = value()
+TypeError: id() takes exactly one argument (0 given)
+Internal Server Error: /econmet/diagnose
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 449, in diagnose
+    if type == 'avanced':
+UnboundLocalError: local variable 'type' referenced before assignment
+Internal Server Error: /econmet/diagnose
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 450, in diagnose
+    fields = ['name', 'type', 'group', 'rate_percent']
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 225, in get_values
+    value = model.objects.get(name=field).model.parameter_values.order_by('parametervaluestranslation__value').values_list('parametervaluestranslation__value', flat=True)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 131, in get
+    return self.get_query_set().get(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 366, in get
+    % self.model._meta.object_name)
+DoesNotExist: AnalisysParameterTranslation matching query does not exist.
+Internal Server Error: /econmet/diagnose
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 450, in diagnose
+    fields = ['name', 'type', 'group', 'rate_percent']
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 225, in get_values
+    value = model.objects.get(name=field).model.parameter_values.order_by('parametervaluestranslation__value').values_list('parametervaluestranslation__value', flat=True)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 131, in get
+    return self.get_query_set().get(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 366, in get
+    % self.model._meta.object_name)
+DoesNotExist: AnalisysParameterTranslation matching query does not exist.
+Internal Server Error: /econmet/diagnose
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 436, in diagnose
+    illness = Illness.objects.create(created = datetime.now())
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 137, in create
+    return self.get_query_set().create(**kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 375, in create
+    obj = self.model(**kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/lib/multiling.py", line 61, in __init__
+    super(MultilingualModel, self).__init__(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/base.py", line 367, in __init__
+    raise TypeError("'%s' is an invalid keyword argument for this function" % kwargs.keys()[0])
+TypeError: 'created' is an invalid keyword argument for this function
+Internal Server Error: /econmet/diagnose
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 436, in diagnose
+    es = Language.objects.get(code='es')
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 137, in create
+    return self.get_query_set().create(**kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 377, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/base.py", line 463, in save
+    self.save_base(using=using, force_insert=force_insert, force_update=force_update)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/base.py", line 551, in save_base
+    result = manager._insert([self], fields=fields, return_id=update_pk, using=using, raw=raw)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 203, in _insert
+    return insert_query(self.model, objs, fields, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 1576, in insert_query
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/compiler.py", line 909, in execute_sql
+    for sql, params in self.as_sql():
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/compiler.py", line 872, in as_sql
+    for obj in self.query.objs
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py", line 292, in get_db_prep_save
+    prepared=False)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py", line 284, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py", line 966, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+Internal Server Error: /econmet/diagnose
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 437, in diagnose
+    illness = Illness.objects.create(rate_percent=request.POST.get('rate_percent', ''))
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 137, in create
+    return self.get_query_set().create(**kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 377, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/base.py", line 463, in save
+    self.save_base(using=using, force_insert=force_insert, force_update=force_update)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/base.py", line 551, in save_base
+    result = manager._insert([self], fields=fields, return_id=update_pk, using=using, raw=raw)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 203, in _insert
+    return insert_query(self.model, objs, fields, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 1576, in insert_query
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/compiler.py", line 909, in execute_sql
+    for sql, params in self.as_sql():
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/compiler.py", line 872, in as_sql
+    for obj in self.query.objs
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py", line 292, in get_db_prep_save
+    prepared=False)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py", line 284, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py", line 966, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: 'uno'
+Internal Server Error: /econmet/diagnose
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 429, in diagnose
+    clinical = Clinical.objects.get(id=request.POST['clinical_id'])
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/datastructures.py", line 258, in __getitem__
+    raise MultiValueDictKeyError("Key %r not found in %r" % (key, self))
+MultiValueDictKeyError: "Key 'clinical_id' not found in <QueryDict: {}>"
+Internal Server Error: /econmet/diagnose
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 436, in diagnose
+    es = Language.objects.get(code=request.META['LANG'][:2])
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 137, in create
+    return self.get_query_set().create(**kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 377, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/base.py", line 463, in save
+    self.save_base(using=using, force_insert=force_insert, force_update=force_update)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/base.py", line 551, in save_base
+    result = manager._insert([self], fields=fields, return_id=update_pk, using=using, raw=raw)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 203, in _insert
+    return insert_query(self.model, objs, fields, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 1576, in insert_query
+    return query.get_compiler(using=using).execute_sql(return_id)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/compiler.py", line 909, in execute_sql
+    for sql, params in self.as_sql():
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/sql/compiler.py", line 872, in as_sql
+    for obj in self.query.objs
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py", line 292, in get_db_prep_save
+    prepared=False)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py", line 284, in get_db_prep_value
+    value = self.get_prep_value(value)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/fields/__init__.py", line 966, in get_prep_value
+    return int(value)
+ValueError: invalid literal for int() with base 10: ''
+Internal Server Error: /econmet/diagnose
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 433, in diagnose
+    clinical = Clinical.objects.get(id=request.POST['clinical_id'])
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/datastructures.py", line 258, in __getitem__
+    raise MultiValueDictKeyError("Key %r not found in %r" % (key, self))
+MultiValueDictKeyError: "Key 'clinical_id' not found in <QueryDict: {}>"
+Internal Server Error: /econmet/diagnose
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 433, in diagnose
+    clinical = Clinical.objects.get(id=request.POST['clinical_id'])
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/datastructures.py", line 258, in __getitem__
+    raise MultiValueDictKeyError("Key %r not found in %r" % (key, self))
+MultiValueDictKeyError: "Key 'clinical_id' not found in <QueryDict: {}>"
+Internal Server Error: /econmet/clinical/298/illness
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 258, in thumb_view
+    'data_object' : get_data_object(clinical, {'fields': ['id','history_number'], 'm2m': [nav_field_active]}),
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 47, in get_data_object
+    if object:
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/utils.py", line 102, in get_data_illness
+    dict['data'][object_id] = []
+IndexError: list assignment index out of range
+Internal Server Error: /econmet/clinical
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/mjimenez/Proyectos/METABOLOPATIAS/metabolopatias/trunk/pythonidae/plugins/econmet/views.py", line 226, in clinical
+    context_instance=RequestContext(request))
+  File "/usr/local/lib/python2.7/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 176, in render_to_string
+    return t.render(context_instance)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 823, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/debug.py", line 74, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 823, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/debug.py", line 74, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader_tags.py", line 101, in render
+    compiled_parent = self.get_parent(context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader_tags.py", line 98, in get_parent
+    return get_template(parent)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 134, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 42, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 48, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 265, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 321, in invalid_block_tag
+    raise self.error(token, "Invalid block tag: '%s'" % command)
+TemplateSyntaxError: Invalid block tag: 'trans"valid'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 344, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 326, in get_inferences_clinicals
+    [result.append(key) for key in clinical_by_analisys | clinical_by_symptoms if key not in result]
+UnboundLocalError: local variable 'clinical_by_symptoms' referenced before assignment
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 346, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 328, in get_inferences_clinicals
+    [result.append(key) for key in clinical_by_analisys | clinical_by_symptoms if key not in result]
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 224, in __or__
+    combined.query.combine(other.query, sql.OR)
+AttributeError: 'list' object has no attribute 'query'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 342, in analisys
+    if id:
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 342, in analisys
+    if id:
+  File "/usr/lib/python2.7/bdb.py", line 49, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/usr/lib/python2.7/bdb.py", line 68, in dispatch_line
+    if self.quitting: raise BdbQuit
+BdbQuit
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 347, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 329, in get_inferences_clinicals
+    [result.append(key) for key in clinical_by_analisys | clinical_by_symptoms if key not in result]
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 224, in __or__
+    combined.query.combine(other.query, sql.OR)
+AttributeError: 'list' object has no attribute 'query'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 347, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 323, in get_inferences_clinicals
+    clinical_results_set.append(Clinical.objects.filter(analisys__parameter_result__value__id = parameter, illness__isnull=False))
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 217, in __get__
+    def __get__(self, instance, type=None):
+  File "/usr/lib/python2.7/bdb.py", line 51, in trace_dispatch
+    return self.dispatch_call(frame, arg)
+  File "/usr/lib/python2.7/bdb.py", line 81, in dispatch_call
+    if self.quitting: raise BdbQuit
+BdbQuit
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 356, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 332, in get_inferences_clinicals
+    clinical_results_set.append(Clinical.objects.filter(analisys__parameter_result__parameter__id = parameter.id, analisys__parameter_result__value__id__in = dictio.get(parameter), illness__isnull=False))
+AttributeError: 'long' object has no attribute 'id'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 356, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 330, in get_inferences_clinicals
+    dictio = get_analisys_parameters(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 295, in get_analisys_parameters
+    return organize_analysis_parameter_result(parameters)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 301, in organize_analysis_parameter_result
+    d.get(parameter.parameter.id).append(parameter.value.id)
+AttributeError: 'long' object has no attribute 'append'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 356, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 330, in get_inferences_clinicals
+    dictio = get_analisys_parameters(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 295, in get_analisys_parameters
+    return organize_analysis_parameter_result(parameters)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 301, in organize_analysis_parameter_result
+    d[parameter.parameter.id].append(parameter.value.id)
+AttributeError: 'long' object has no attribute 'append'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 356, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 330, in get_inferences_clinicals
+    dictio = get_analisys_parameters(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 295, in get_analisys_parameters
+    return organize_analysis_parameter_result(parameters)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 301, in organize_analysis_parameter_result
+    d[parameter.parameter.id].append(parameter.value.id)
+AttributeError: 'long' object has no attribute 'append'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 357, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 331, in get_inferences_clinicals
+    dictio = get_analisys_parameters(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 295, in get_analisys_parameters
+    return organize_analysis_parameter_result(parameters)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 302, in organize_analysis_parameter_result
+    d[parameter.parameter.id].append(parameter.value.id)
+AttributeError: 'long' object has no attribute 'append'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 357, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 331, in get_inferences_clinicals
+    dictio = get_analisys_parameters(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 295, in get_analisys_parameters
+    return organize_analysis_parameter_result(parameters)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 302, in organize_analysis_parameter_result
+    d[parameter.parameter.id].append(parameter.value.id)
+AttributeError: 'long' object has no attribute 'append'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 357, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 331, in get_inferences_clinicals
+    dictio = get_analisys_parameters(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 295, in get_analisys_parameters
+    return organize_analysis_parameter_result(parameters)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 302, in organize_analysis_parameter_result
+    d[parameter.parameter.id].append(parameter.value.id)
+AttributeError: 'long' object has no attribute 'append'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 357, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 331, in get_inferences_clinicals
+    dictio = get_analisys_parameters(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 295, in get_analisys_parameters
+    return organize_analysis_parameter_result(parameters)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 302, in organize_analysis_parameter_result
+    d[parameter.parameter.id].append(parameter.value.id)
+AttributeError: 'long' object has no attribute 'append'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 359, in generate_report
+    report = save_report(matches)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 347, in save_report
+    for illness in list(clinical.illness.all()):
+AttributeError: 'QuerySet' object has no attribute 'illness'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 359, in generate_report
+    report = save_report(matches)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 347, in save_report
+    for illness in list(clinical.illness.all()):
+AttributeError: 'QuerySet' object has no attribute 'illness'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 359, in generate_report
+    report = save_report(matches)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 347, in save_report
+    for illness in list(clinical.illness.all()):
+AttributeError: 'QuerySet' object has no attribute 'illness'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 209, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 216, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 27, in wrapper
+    result = func(*args)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 92, in get_callable
+    lookup_view = getattr(import_module(mod_name), func_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 25, in <module>
+    from plugins.econmet.utils import *
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 322
+    import pdb; pdb.set_trace()
+   ^
+IndentationError: unexpected indent
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 358, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 335, in get_inferences_clinicals
+    clinical_by_analisys = get_commun_clinical(clinical_results_set)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 323, in get_commun_clinical
+    for clinical in clinicals:
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 323, in get_commun_clinical
+    for clinical in clinicals:
+  File "/usr/lib/python2.7/bdb.py", line 49, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/usr/lib/python2.7/bdb.py", line 68, in dispatch_line
+    if self.quitting: raise BdbQuit
+BdbQuit
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 359, in generate_report
+    report = save_report(matches)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 347, in save_report
+    for illness in list(clinical.illness.all()):
+AttributeError: 'QuerySet' object has no attribute 'illness'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 360, in generate_report
+    report = save_report(matches)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 348, in save_report
+    for illness in list(clinical.illness.all()):
+AttributeError: 'QuerySet' object has no attribute 'illness'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 358, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339, in get_inferences_clinicals
+    [result.append(key) for key in clinical_by_analysis  if key not in result]
+NameError: global name 'clinical_by_analysis' is not defined
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 360, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 334, in get_inferences_clinicals
+    clinical_results_set.append(Clinical.objects.filter(analisys__parameter_result__parameter = AnalysisParameter.objects.get(id=parameter), analisys__parameter_result__value__id__in = dictio.get(parameter), illness__isnull=False))
+NameError: global name 'AnalysisParameter' is not defined
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 360, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 343, in get_inferences_clinicals
+    return result
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 343, in get_inferences_clinicals
+    return result
+  File "/usr/lib/python2.7/bdb.py", line 49, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/usr/lib/python2.7/bdb.py", line 68, in dispatch_line
+    if self.quitting: raise BdbQuit
+BdbQuit
+Internal Server Error: /econmet/delete/296/analisys/809
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 209, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 216, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 27, in wrapper
+    result = func(*args)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 92, in get_callable
+    lookup_view = getattr(import_module(mod_name), func_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 25, in <module>
+    from plugins.econmet.utils import *
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339
+    if analisys.parameter_result.parameter = AnalisysParameter.objects.get(id=parameter) and analisys.parameter_result.value.id in dictio.get(parameter):
+                                           ^
+SyntaxError: invalid syntax
+Internal Server Error: /econmet/delete/296/analisys/809
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 209, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 216, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 27, in wrapper
+    result = func(*args)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 92, in get_callable
+    lookup_view = getattr(import_module(mod_name), func_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 25, in <module>
+    from plugins.econmet.utils import *
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339
+    if analisys.parameter_result.parameter = AnalisysParameter.objects.get(id=parameter) and analisys.parameter_result.value.id in dictio.get(parameter):
+                                           ^
+SyntaxError: invalid syntax
+Internal Server Error: /econmet/delete/296/analisys/809
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 209, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 216, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 27, in wrapper
+    result = func(*args)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 92, in get_callable
+    lookup_view = getattr(import_module(mod_name), func_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 25, in <module>
+    from plugins.econmet.utils import *
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339
+    if analisys.parameter_result.parameter = AnalisysParameter.objects.get(id=parameter) and analisys.parameter_result.value.id in dictio.get(parameter):
+                                           ^
+SyntaxError: invalid syntax
+Internal Server Error: /econmet/login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 209, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 216, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 27, in wrapper
+    result = func(*args)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 92, in get_callable
+    lookup_view = getattr(import_module(mod_name), func_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 25, in <module>
+    from plugins.econmet.utils import *
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339
+    if analisys.parameter_result.parameter = AnalisysParameter.objects.get(id=parameter) and analisys.parameter_result.value.id in dictio.get(parameter):
+                                           ^
+SyntaxError: invalid syntax
+Internal Server Error: /econmet/login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 209, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 216, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 27, in wrapper
+    result = func(*args)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 92, in get_callable
+    lookup_view = getattr(import_module(mod_name), func_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 25, in <module>
+    from plugins.econmet.utils import *
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 340
+    max_analisys ++
+                  ^
+SyntaxError: invalid syntax
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 377, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 336, in get_inferences_clinicals
+    for clinic in clinicals.all():
+NameError: global name 'clinicals' is not defined
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 377, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 336, in get_inferences_clinicals
+    for clinic in clinicals.all():
+NameError: global name 'clinicals' is not defined
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 377, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339, in get_inferences_clinicals
+    if analisys.parameter_result.parameter == AnalisysParameter.objects.get(id=parameter) and analisys.parameter_result.value.id in dictio.get(parameter):
+AttributeError: 'ManyRelatedManager' object has no attribute 'parameter'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 378, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 338, in get_inferences_clinicals
+    for parameter_result in analisys.parameter_result:
+TypeError: 'ManyRelatedManager' object is not iterable
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 378, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 345, in get_inferences_clinicals
+    res[clinic.name] = max_clinic
+AttributeError: 'Clinical' object has no attribute 'name'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 378, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 350, in get_inferences_clinicals
+    for parameter in get_symptoms_parameters(clinical):
+NameError: global name 'd' is not defined
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 380, in generate_report
+    report = save_report(matches)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 368, in save_report
+    for illness in list(clinical.illness.all()):
+AttributeError: 'unicode' object has no attribute 'illness'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 380, in generate_report
+    report = save_report(matches)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 368, in save_report
+    for illness in list(clinical.illness.all()):
+AttributeError: 'unicode' object has no attribute 'illness'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 381, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 350, in get_inferences_clinicals
+    for parameter in get_symptoms_parameters(clinical):
+TypeError: range() integer end argument expected, got method-wrapper.
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 381, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 350, in get_inferences_clinicals
+    for parameter in get_symptoms_parameters(clinical):
+TypeError: count() takes exactly one argument (0 given)
+Internal Server Error: /econmet/clinical/296/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 209, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 216, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 27, in wrapper
+    result = func(*args)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 92, in get_callable
+    lookup_view = getattr(import_module(mod_name), func_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 25, in <module>
+    from plugins.econmet.utils import *
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 340
+    if paramet != None
+                     ^
+SyntaxError: invalid syntax
+Internal Server Error: /econmet/login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 209, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 216, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 27, in wrapper
+    result = func(*args)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 92, in get_callable
+    lookup_view = getattr(import_module(mod_name), func_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 25, in <module>
+    from plugins.econmet.utils import *
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 340
+    if paramet != None
+                     ^
+SyntaxError: invalid syntax
+Internal Server Error: /econmet/login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 209, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 216, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 27, in wrapper
+    result = func(*args)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 92, in get_callable
+    lookup_view = getattr(import_module(mod_name), func_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 25, in <module>
+    from plugins.econmet.utils import *
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339
+    paramet = AnalisysParameterResult.objects.get(parameter=parameter, value__id in dictio.get(parameter))
+SyntaxError: non-keyword arg after keyword arg
+Internal Server Error: /econmet/login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 209, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 216, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 27, in wrapper
+    result = func(*args)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 92, in get_callable
+    lookup_view = getattr(import_module(mod_name), func_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 25, in <module>
+    from plugins.econmet.utils import *
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339
+    paramet = AnalisysParameterResult.objects.get(parameter=parameter, value__id in dictio.get(parameter))
+SyntaxError: non-keyword arg after keyword arg
+Internal Server Error: /econmet/login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 209, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 216, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 27, in wrapper
+    result = func(*args)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 92, in get_callable
+    lookup_view = getattr(import_module(mod_name), func_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 25, in <module>
+    from plugins.econmet.utils import *
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 340
+    if paramet != None and paramet.value.id in dictio.get(parameter)):
+                                                                    ^
+SyntaxError: invalid syntax
+Internal Server Error: /econmet/login
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 209, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 216, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 27, in wrapper
+    result = func(*args)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 92, in get_callable
+    lookup_view = getattr(import_module(mod_name), func_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 25, in <module>
+    from plugins.econmet.utils import *
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 340
+    if paramet.value.id in dictio.get(parameter)):
+                                                ^
+SyntaxError: invalid syntax
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 385, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339, in get_inferences_clinicals
+    paramet = AnalisysParameterResult.objects.get(parameter=parameter)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 131, in get
+    return self.get_query_set().get(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 368, in get
+    % (self.model._meta.object_name, num, kwargs))
+MultipleObjectsReturned: get() returned more than one AnalisysParameterResult -- it returned 437! Lookup parameters were {'parameter': 19L}
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 385, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339, in get_inferences_clinicals
+    paramet = analisys.parameter_result.objects.get(parameter=parameter)
+AttributeError: 'ManyRelatedManager' object has no attribute 'objects'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 385, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339, in get_inferences_clinicals
+    paramet = analisys.parameter_result.get(parameter=parameter)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 131, in get
+    return self.get_query_set().get(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 366, in get
+    % self.model._meta.object_name)
+DoesNotExist: AnalisysParameterResult matching query does not exist.
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 385, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339, in get_inferences_clinicals
+    paramet = analisys.parameter_result.all().get(Q(parameter=parameter))
+NameError: global name 'Q' is not defined
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 385, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339, in get_inferences_clinicals
+    paramet = analisys.parameter_result.all().get(parameter=parameter)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 366, in get
+    % self.model._meta.object_name)
+DoesNotExist: AnalisysParameterResult matching query does not exist.
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 385, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339, in get_inferences_clinicals
+    anal = analisys.parameter_result.all().get(parameter=parameter)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 366, in get
+    % self.model._meta.object_name)
+DoesNotExist: AnalisysParameterResult matching query does not exist.
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 385, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339, in get_inferences_clinicals
+    anal = analisys.parameter_result.all().get(parameter=parameter)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 366, in get
+    % self.model._meta.object_name)
+DoesNotExist: AnalisysParameterResult matching query does not exist.
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 385, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339, in get_inferences_clinicals
+    anal = analisys.parameter_result_set.filter(parameter=parameter)
+AttributeError: 'Analisys' object has no attribute 'parameter_result_set'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 385, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339, in get_inferences_clinicals
+    anal = analisys.parameter_result_set.filter(parameter=parameter)
+AttributeError: 'Analisys' object has no attribute 'parameter_result_set'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 385, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339, in get_inferences_clinicals
+    anal = analisys.objects.all().parameter_result.get(parameter=parameter)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 219, in __get__
+    raise AttributeError("Manager isn't accessible via %s instances" % type.__name__)
+AttributeError: Manager isn't accessible via Analisys instances
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 385, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339, in get_inferences_clinicals
+    anal = analisys.parameter_result_set.filter(parameter=parameter)[0]
+AttributeError: 'Analisys' object has no attribute 'parameter_result_set'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 385, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339, in get_inferences_clinicals
+    anal = analisys.parameter_result.filter(parameter=parameter)[0]
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 207, in __getitem__
+    return list(qs)[0]
+IndexError: list index out of range
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 385, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 339, in get_inferences_clinicals
+    anal = analisys.parameter_result.get(parameter=parameter)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 131, in get
+    return self.get_query_set().get(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 366, in get
+    % self.model._meta.object_name)
+DoesNotExist: AnalisysParameterResult matching query does not exist.
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 386, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 340, in get_inferences_clinicals
+    anal = analisys.parameter_result.get(parameter=parameter)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 131, in get
+    return self.get_query_set().get(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 366, in get
+    % self.model._meta.object_name)
+DoesNotExist: AnalisysParameterResult matching query does not exist.
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 389, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 340, in get_inferences_clinicals
+    try:
+NameError: global name 'DoesNotExist' is not defined
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 389, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 340, in get_inferences_clinicals
+    try:
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 340, in get_inferences_clinicals
+    try:
+  File "/usr/lib/python2.7/bdb.py", line 49, in trace_dispatch
+    return self.dispatch_line(frame)
+  File "/usr/lib/python2.7/bdb.py", line 68, in dispatch_line
+    if self.quitting: raise BdbQuit
+BdbQuit
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 209, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 216, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 27, in wrapper
+    result = func(*args)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 92, in get_callable
+    lookup_view = getattr(import_module(mod_name), func_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 25, in <module>
+    from plugins.econmet.utils import *
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 376
+    if clinical_obj not in result
+                                ^
+SyntaxError: invalid syntax
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 402, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 375, in get_inferences_clinicals
+    clinical_obj = Clinical.objects.get(history_number=res_symptom[i])
+KeyError: 0
+Internal Server Error: /econmet/clinical/296/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 89, in get_response
+    response = middleware_method(request)
+  File "/usr/local/lib/python2.7/dist-packages/django/middleware/common.py", line 67, in process_request
+    if (not urlresolvers.is_valid_path(request.path_info, urlconf) and
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 531, in is_valid_path
+    resolve(path, urlconf)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 420, in resolve
+    return get_resolver(urlconf).resolve(path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 300, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 209, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 216, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/functional.py", line 27, in wrapper
+    result = func(*args)
+  File "/usr/local/lib/python2.7/dist-packages/django/core/urlresolvers.py", line 92, in get_callable
+    lookup_view = getattr(import_module(mod_name), func_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/importlib.py", line 35, in import_module
+    __import__(name)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 25, in <module>
+    from plugins.econmet.utils import *
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 374
+    if not res_symptom.empty()
+                              ^
+SyntaxError: invalid syntax
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 403, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 374, in get_inferences_clinicals
+    if not res_symptom.empty():
+AttributeError: 'dict' object has no attribute 'empty'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 403, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 376, in get_inferences_clinicals
+    clinical_obj = Clinical.objects.get(history_number=res_symptom[i])
+KeyError: 0
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 403, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 376, in get_inferences_clinicals
+    clinical_obj = Clinical.objects.get(history_number=res_symptom[i])
+KeyError: 0
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 404, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 375, in get_inferences_clinicals
+    if len(res_symptom) > 0:
+KeyError: 0
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 359, in analisys
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 385, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 365, in get_inferences_clinicals
+    for i in range(0, len(res_analisys)):
+NameError: global name 'res_analisys' is not defined
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 345, in analisys
+    clinical = Clinical.objects.get(id=request.POST['clinical_id'])
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/datastructures.py", line 258, in __getitem__
+    raise MultiValueDictKeyError("Key %r not found in %r" % (key, self))
+MultiValueDictKeyError: "Key 'clinical_id' not found in <QueryDict: {}>"
+Internal Server Error: /econmet/delete/296/analisys/859
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 403, in delete
+    generate_report(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 385, in generate_report
+    inferences = get_inferences_clinicals(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 329, in get_inferences_clinicals
+    dictio = get_analisys_parameters(clinical)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/utils.py", line 292, in get_analisys_parameters
+    for analisys in list(clinical.analisys.all()):
+AttributeError: 'function' object has no attribute 'analisys'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 380, in analisys
+    context_instance=RequestContext(request))
+  File "/usr/local/lib/python2.7/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 169, in render_to_string
+    t = get_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 134, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 42, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 48, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 267, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader_tags.py", line 214, in do_extends
+    nodelist = parser.parse()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 267, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader_tags.py", line 189, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 267, in parse
+    compiled_result = compile_func(self, token)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/defaulttags.py", line 762, in do_for
+    nodelist_loop = parser.parse(('empty', 'endfor',))
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 265, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 320, in invalid_block_tag
+    (command, get_text_list(["'%s'" % p for p in parse_until])))
+TemplateSyntaxError: Invalid block tag: 'endblock', expected 'empty' o 'endfor'
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 380, in analisys
+    context_instance=RequestContext(request))
+  File "/usr/local/lib/python2.7/dist-packages/django/shortcuts/__init__.py", line 20, in render_to_response
+    return HttpResponse(loader.render_to_string(*args, **kwargs), **httpresponse_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 176, in render_to_string
+    return t.render(context_instance)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 140, in render
+    return self._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 823, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/debug.py", line 74, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader_tags.py", line 123, in render
+    return compiled_parent._render(context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 134, in _render
+    return self.nodelist.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 823, in render
+    bit = self.render_node(node, context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/debug.py", line 74, in render_node
+    return node.render(context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader_tags.py", line 101, in render
+    compiled_parent = self.get_parent(context)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader_tags.py", line 98, in get_parent
+    return get_template(parent)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 145, in get_template
+    template, origin = find_template(template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 134, in find_template
+    source, display_name = loader(name, dirs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 42, in __call__
+    return self.load_template(template_name, template_dirs)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 48, in load_template
+    template = get_template_from_string(source, origin, template_name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/loader.py", line 156, in get_template_from_string
+    return Template(source, origin, name)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 125, in __init__
+    self.nodelist = compile_string(template_string, origin)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 153, in compile_string
+    return parser.parse()
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 265, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/usr/local/lib/python2.7/dist-packages/django/template/base.py", line 321, in invalid_block_tag
+    raise self.error(token, "Invalid block tag: '%s'" % command)
+TemplateSyntaxError: Invalid block tag: 'static'
+Internal Server Error: /econmet/delete/296/analisys/865
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 402, in delete
+    object = Analisys.objects.get(id = id)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 131, in get
+    return self.get_query_set().get(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 366, in get
+    % self.model._meta.object_name)
+DoesNotExist: Analisys matching query does not exist.
+Internal Server Error: /econmet/delete/296/analisys/865
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 402, in delete
+    object = Analisys.objects.get(id = id)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/manager.py", line 131, in get
+    return self.get_query_set().get(*args, **kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/db/models/query.py", line 366, in get
+    % self.model._meta.object_name)
+DoesNotExist: Analisys matching query does not exist.
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 345, in analisys
+    clinical = Clinical.objects.get(id=request.POST['clinical_id'])
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/datastructures.py", line 258, in __getitem__
+    raise MultiValueDictKeyError("Key %r not found in %r" % (key, self))
+MultiValueDictKeyError: "Key 'clinical_id' not found in <QueryDict: {}>"
+Internal Server Error: /econmet/analisys
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/django/core/handlers/base.py", line 111, in get_response
+    response = callback(request, *callback_args, **callback_kwargs)
+  File "/usr/local/lib/python2.7/dist-packages/django/contrib/auth/decorators.py", line 20, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "/home/palaneyrie/workspace/econmet2/pythonidae/plugins/econmet/views.py", line 345, in analisys
+    clinical = Clinical.objects.get(id=request.POST['clinical_id'])
+  File "/usr/local/lib/python2.7/dist-packages/django/utils/datastructures.py", line 258, in __getitem__
+    raise MultiValueDictKeyError("Key %r not found in %r" % (key, self))
+MultiValueDictKeyError: "Key 'clinical_id' not found in <QueryDict: {}>"

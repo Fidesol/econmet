@@ -1,0 +1,112 @@
+{% load url from future %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>{% block title_master %}{% block title %}{% endblock %} {{config_data.general.site_name}}  {% endblock %}</title>
+		<meta name="description" content="" />
+		<meta name="author" content="Fundación I+D del Software Libre" />
+		<!-- No permitir el cacheo de la web -->
+		<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">
+		<meta http-equiv="Pragma" content="no-cache">
+		<meta http-equiv="expires" content="0">
+
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+		<script src="{{ STATIC_URL }}js/browser-detect.js"></script>
+		<script src="{{ STATIC_URL }}js/popup.js"></script>
+		<script>
+		BrowserDetect.init(); 
+		if (BrowserDetect.browser == "Explorer") {
+		    document.write('<link href="{{ THEME_STATIC_URL }}css/style-ie.css" rel="stylesheet">');
+		}
+		else {
+			document.write('<link href="{{ THEME_STATIC_URL }}css/style.css" rel="stylesheet">');
+		}
+		</script>		
+		<script src="{{ STATIC_URL }}js/jquery-1.7.1.min.js"></script>
+		<script src="{{ STATIC_URL }}js/jquery.validate.js"></script>
+		<script>
+			function createCookie(name,value,days) {
+				if (days) {
+					var date = new Date();
+					date.setTime(date.getTime()+(days*24*60*60*1000));
+					var expires = "; expires="+date.toGMTString();
+				}
+				else var expires = "";
+				document.cookie = name+"="+value+expires+"; path=/";
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<div id="header">
+                            <h1>Default theme</h1>
+			</div>
+			<div id="menu">
+				<ul>
+					{% for tag in menu %}
+						{% if not forloop.first and not forloop.counter0 == next %} <p id='menu_line' {% if NAV == tag.nav_option %} class="active" {% endif %} ></p> {% endif %}
+						<li {% if NAV == tag.nav_option %} class="active" {% endif %}>
+							<a href="/{{tag.nav_option}}" onclick="show_submenu('{{tag.id}}')">{{tag.name}}</a>
+						</li>
+					{% endfor %}
+                                        {% for key,value in PLUGINS_MENUS.items %}
+                                            <li {% if NAV == tag.nav_option %} class="active" {% endif %}>
+					        <a href="{{value.url}}">{{value.title}}</a>
+					    </li>
+                                        {% endfor %}
+				</ul>
+			</div>
+			<div id="container">
+				<div id="content">
+					{% if submenu %}
+						<div id="submenu">
+							<ul>
+								{% for tag in submenu %}
+									<li {% if SUBNAV == tag.nav_option %} class="active" {% endif %}><a href="/{{tag.nav_option}}" onclick="show_submenu('{{tag.id}}')">{{tag.name}}</a></li><p></p>
+								{% endfor %}
+							</ul>				
+						</div>
+						<div id ="line"><div id="div-border"></div></div>
+					{% endif %}
+					{% block content %}{% endblock %}
+				</div>
+				<div style="clear:both"></div>
+			</div>
+			<div id="footer">
+				<div id="extra_info">
+					 <ul>
+						 {% if config_data.contact.active == '1' %}<li><a href="/contact">{{ fixed_values.contact.label }}</a></li>{% endif %}
+						 <li><a href="/partnership">{{ partnership_label }}</a></li>
+						 <li><a id='imprime' href="#" onclick="javascript:window.print();">{{ print_label }}</a></li>
+					 </ul> 
+				</div> 
+				<div id="language">
+					<ul>
+						{% for tag in language %}
+							<li><img title ="{{tag.name}}" src="{{ STATIC_URL }}uploads/{% if LANG == tag.code %}{{tag.image_active}}{% else %}{{tag.image_inactive}}{% endif %}" height="20" width="30" onclick="createCookie('language', '{{tag.code}}', 1);window.location.reload();"/></li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+		
+		  var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-28972898-2']);
+		  _gaq.push(['_trackPageview']);
+		
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		
+		</script>		
+	</body>
+</html>
+

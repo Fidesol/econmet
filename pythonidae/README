@@ -1,0 +1,57 @@
+VERSION: 0.1.0
+
+REQUERIMENTS
+-------------------------------------------------------------------------------
+
+ * python-django-tinymce A django module to integrate tinymce WYSIWYG editor.
+ * python-django-south
+ * gettext
+ * django-admin-tools --> https://bitbucket.org/izi/django-admin-tools/
+ * python-feedparser 
+ * django-fluent-dashboard --> https://github.com/edoburu/django-fluent-dashboard
+ * django-rosetta
+ 
+INSTALLATION
+-------------------------------------------------------------------------------
+
+0. Install the requeriments
+1. Synchronize the data base:
+
+ $ ./manage.py syncdb
+ $ ./manage.py migrate web 
+ $ ./manage.py migrate admin_tools.dashboard
+ $ ./manage.py migrate admin_tools.menu
+
+2. Load default data:
+
+ $ ./manage.py loaddata
+
+INTERNATIONALIZATION
+-------------------------------------------------------------------------------
+
+1. To generate the .po files to translate:
+
+ $ ./manage.py makemessages -l <language>
+
+<language> = es for Spanish.
+
+2. Edit the .po file in locale/es/LC_MESSAGES/ and translate.
+
+3. To generate the .mo file:
+
+ $ ./manage.py compilemessages
+
+NOTES
+-------------------------------------------------------------------------------
+
+The icons used for the administration panel are from Emey87:
+
+48px web iconset --> http://emey87.deviantart.com/#/d36v4yq
+
+Gets from here --> http://www.iconfinder.com/search/2/?q=iconset%3A48_px_web_icons
+
+License: Creative Commons Attribution-No Derivative Works 3.0 Unported
+
+
+ 
+

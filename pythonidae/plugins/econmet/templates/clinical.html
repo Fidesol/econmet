@@ -1,0 +1,212 @@
+{% extends "table_content.html" %}
+{% load i18n %}
+{% load web_extras %}	
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block centerside %}
+{% if message %} 
+	<!--  start message-green -->
+	<div id="message-green">
+		<table border="0" width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td class="green-left">{{message}} </td>
+				<td class="green-right"><a class="close-green"><img src="{{THEME_STATIC_URL}}images/table/icon_close_green.gif"   alt="" /></a></td>
+			</tr>
+		</table>
+	</div>
+	<!--  end message-green -->
+{% endif %}
+<form id="model_form" action="" method="POST">{% csrf_token %}
+<input id="clinical_id" name="clinical_id" type="hidden" value="{{data_object.id}}"/>	
+<table border="0" cellpadding="0" cellspacing="0" id="id-form">
+	<tbody>
+		<tr>
+			<th valign="top">{% trans "History Number:" %}</th>
+			<td><input id="history_number" name="history_number" type="text" class="inp-form" value="{{data_object|getkey:'history_number'}}" {%if not new %}readonly="True"{% endif %}></td>
+			<td><span class="error" style="display: none; margin-left: 10px;">{% trans "Please enter a History Number."%}</span></td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+	<!-- start model-nav -->	
+	<div class="nav-menu">
+		<ul class="artmenu">
+			{% for field in m2m_fields %}
+				{% if not field.name == "illness" %}
+		    		<li><a href="{% if not new %}/econmet/{{module_name}}/{{data_object|getkey:'id'}}/{{field.name}}{% else %}#{%endif%}" {% if field.name == nav_field_active %} class="active" {% endif %}><span><span>{{field.verbose_name|capfirst}}</span></span></a></li>
+		    		<li><span class="separator"></span></li>
+		    	{% endif %}
+		    {% endfor %}
+		      <li><a href="{% if not new %}/econmet/{{module_name}}/{{data_object|getkey:'id'}}/illness{% else %}#{%endif%}" {% if 'illness' == nav_field_active %} class="active" {% endif %}><span><span>{% trans "final diagnose" %}</span></span></a></li>
+              <li><span class="separator"></span></li>
+		</ul>
+		<div class="l"></div>
+		<div class="r"><div></div></div>
+	</div>
+	<!-- end model-nav -->
+	<!-- start model-container -->
+	<div id="model-container">
+		<div id="model-bottom">
+			<!-- start form-inner --> 
+			<div id="model-inner">
+				{% block content-thumb %}
+				{% endblock %}
+				<div class="clear"></div>
+			</div> 
+			<!-- end form-inner -->
+		</div>
+		<!-- end form-bottom -->
+	</div>
+	<!-- end model-container -->
+	{% if profile != 'Admin' %}
+		<div class = 'button'>
+		    {% if profile == 'laboratoryprofile' and nav_field_active == 'report' %}
+		       <input id="add_alias_report" type="button" onclick="overlay()" value='{% trans "Add Alias" %}' class="models-submit-large">
+		    {% endif %}
+			<input id="create-button-symptoms" type="button" {% if profile == 'medicalprofile' %} onclick="submitSymptoms()" value='{% trans "Add Symptoms" %}' {% else %} onclick="submitAnalisys()" value='{% trans "Add Analisys" %}' {% endif %} class="models-submit-large">
+		</div>
+	{% else %}
+		<div class = 'button'>
+	        <input id="add_final_diagnose" type="button" onclick="submitDiagnose()" value='{% trans "Add final diagnose" %}' class="models-submit-large">
+	    </div>
+	{% endif %}
+</form>
+
+<!-- <div id="overlay">
+    <div>
+        <h2>Introduce el alias para el informe:</h2>
+		<form class="form-horizontal">
+		    <label class="control-label" for="inputEmail">Email</label>
+		      <input type="text" id="inputEmail" placeholder="Email">
+		      <button type="submit" class="btn">Sign in</button>
+		</form>
+    </div>
+</div> -->
+
+<div id="overlay">
+	<div class="container">
+        <h2> Introducir el alias para el informe: </h2>
+        <br />
+        <form action="/econmet/{{nav_field_active}}/alias/{{data_object.id}}" class="form-dialog" method="post"><div style="display:none">
+            <input type="hidden" name="csrfmiddlewaretoken" value="huFEmnbf28AZGLcRt8Lea9d7HSWc1SXr"></div>
+            <table border="0" cellpadding="0" cellspacing="0">
+                <tbody>
+                <tr>
+                    <th style="padding-right: 15px;">Alias</th>
+                    <td>
+                    <input type="text" name="alias" class="styledinput_model_1">
+                    </td>
+                </tr>
+                <tr><th></th><td></td></tr>
+                <tr>
+                    <th></th>
+                    <td>
+                    <input type="submit" value="Enviar " class="models-submit-large" style="margin-top: 20px">                              
+                    </td>
+                </tr>
+            </tbody></table>
+        </form>
+	</div>
+</div>
+<script>
+    function overlay() {
+        el = document.getElementById("overlay");
+        el.style.visibility = (el.style.visibility == "visible") ? "hidden" : "visible";
+    }   
+</script>
+
+<script>
+	function checkHistoryNumber(){
+		$(".error").hide();
+		var historyVal = $('#history_number').val();
+	    if (historyVal == '') {
+	    	$(".error").show();
+	        return false;
+	    }
+	    return true;		
+	}
+	
+	function checkClinicalId(){
+		var clinicalID = $('#clinical_id').val();
+	    if (clinicalID == '') {
+	    	createTooltip.call({ elements: { element: $('#create-button-symptoms'),
+	    									content: '{% trans "To add a Analisys, you have to create a Symptom." %}',
+	    									tooltip: 'topMiddle',
+               						 	 	target: 'bottomMiddle' } });
+	        return false;
+	    }
+	    return true;				
+	}
+
+	function submitSymptoms(){
+		if (checkHistoryNumber()){
+			$("#model_form")[0].action='/econmet/symptoms';
+			$("#model_form").submit();
+		}
+	}	
+
+	function submitAnalisys(){
+		if (checkHistoryNumber() && checkClinicalId()){
+			$("#model_form")[0].action='/econmet/analisys';
+			$("#model_form").submit();
+		}
+	}
+	
+	function submitDiagnose(){
+		if (checkHistoryNumber() && checkClinicalId()){
+            $("#model_form")[0].action='/econmet/diagnose';
+            $("#model_form").submit();
+        } 
+	}
+		
+</script>
+	
+{% if new %}
+<script>	
+   function createTooltip()
+   {
+      // Initialize the tooltip on the previous tooltip
+      this.elements.element.qtip(
+      {
+         content: this.elements.content, //'{% trans "To save the new Clinical, you have to create a Symptom." %}',
+         position: {
+            corner: {
+               tooltip: this.elements.tooltip,
+               target: this.elements.target
+            },
+            adjust: {
+               resize: true,
+               scroll: true
+            }
+         },
+         show: { ready: true }, // Show the tooltips when they're ready
+         hide: false, // Don't hide them
+		 style: {
+		 	  width: { min: 250 },
+	          border: {
+	             width: 5,
+	             radius: 5
+	          },
+	          padding: 7, 
+	          textAlign: 'center',
+	          'font-size' : 12,
+	          'line-height': '14px',
+	          tip: true, // Give it a speech bubble tip with automatic corner detection
+	          name: 'green' 
+	       }
+      });
+   }	
+	
+   // Match all link elements with href attributes within the content div
+   $('#history_number').change(function() {
+  		createTooltip.call({ elements: { element: $('#history_number'), 
+  										 content: '{% trans "To save the new Clinical, you have to create a Symptom." %}' , 
+  										 tooltip: 'leftMiddle',
+               						 	 target: 'rightMiddle'}  });
+	});
+	
+</script>
+{% endif %}
+{% endblock %}
+

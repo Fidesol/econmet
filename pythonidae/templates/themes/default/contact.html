@@ -1,0 +1,57 @@
+{% extends BASE_TEMPLATE %}
+{% load i18n %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+<script>	
+$(document).ready(function() {
+	// validate signup form on keyup and submit
+	var validator = $("#contactForm").validate({
+		errorPlacement: function(error, element) {
+	       error.insertAfter(element.context.nextElementSibling);
+	  },
+		// set this class to error-labels to indicate valid fields 
+		success: function(label) { 
+	    // set   as text for IE 
+		label.html(" ").addClass("checked"); 
+	  } 
+	});
+});
+</script>
+<div id="left">
+	<form class="contactform" id="contactForm"action="/contact/" method="post">
+		
+		<p><label for="id_subject">{{ name_label}} *:</label><br>
+		<input name="subject" maxlength="150" id="id_subject" title="{{ name_error }}" type="text" class="input_text_contact required error" size="45">
+		<br>
+		<p><label for="id_sender">{{ mail_label }} *:</label><br>
+	    <input name="sender" maxlength="150" id="id_sender" title="{{ sender_error }}" type="text" class="input_text_contact required error" size="45">
+		<br>
+		<p><label for="id_message">{{ message_label }} *:</label><br>
+		<textarea name="message" id="id_message" rows="5" cols="44" title="{{ message_error }}" class="input_text_contact required error"></textarea>
+		<br>
+		<p><label for="id_cc_myself">{{ send_copy_label }}:</label>
+	    {{form.cc_myself}}
+	    <br><br>
+		<input id="enviar" type="submit" value="{{send_label}}" />
+	</form>
+</div>
+<div id="right">
+	<div id="info">
+		<br>
+		<h2 style="color: #ffe10b">{{config_data.contact.site_name}}</h2>
+		<p>{{config_data.contact.address1}}<br>
+		{{ config_data.contact.address2}}<br>
+		{{ phone_label }}: {{config_data.contact.phone1}}<br>
+		{{ phone_label }}: {{config_data.contact.phone2}}<br>
+		{{ mail_label }}: {{config_data.contact.mail}}</p>
+	</div>
+	<br><br><br><br>
+	<div id='container-link'>
+		<div id='link' style="margin: 5px auto;"><a href='/questionary'>{{questionary_label}}</a></div>
+	</div>
+</div>
+<div style="clear: both"></div>
+{% endblock %}
+

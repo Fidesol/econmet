@@ -1,0 +1,65 @@
+{% extends "clinical.html" %}
+{% load i18n %}
+{% load web_extras %}	
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content-thumb %}
+{% if data_object|getkey:nav_field_active|getkey:'illness' %}
+	<div class="text">
+	{% if data_object|getkey:nav_field_active|getkey:'data'|getkey:'alias' %}
+	   <h2> {% trans "Results report for the inform " %} {{data_object|getkey:nav_field_active|getkey:'data'|getkey:'alias'}}</h2> <!--Informe de resultados para el informe-->
+	{% else %}
+	   <h2> {% trans "Results report" %}</h2> <!--Informe de resultados-->
+	{% endif %}
+	<h3> {% trans "Depending on the symptoms and the initial analysis, the differential diagnosis would indicate these pathologies:" %} </h3>
+	<!--En funcion de los sintomas y el analisis inicial, el diagnostico diferencial indicaria estas patologias: -->
+	</div>
+	<div class="text-container">
+	{% for illness in data_object|getkey:nav_field_active|getkey:'illness' %}
+		<div class="element">
+			<table cellpadding="0" cellspacing="0" id="model-values">
+				<tbody>
+					{% for data in illness %}
+						<tr {% if forloop.counter|divisibleby:2 %} class="alternate-row" {% endif %}>
+							<th valign="top" style="width: 100px">{{data|getkey:'name'}}:</th>	<td>{{data|getkey:'value'}}</td>
+						</tr>
+					{% endfor %}
+			</tbody></table>
+		</div>		
+	{% endfor %}
+	</div>
+	<div class="clear"></div>
+	<br>
+	{% if data_object|getkey:nav_field_active|getkey:'illness'|length > 1 %}
+		<div class="text">
+		<h3> {% trans "We suggest send a second sample with these parameters:" %} </h3>
+		<!-- Sugerimos envien una segunda muestra con estos parametros: -->
+		</div>
+		{% for parameter in data_object|getkey:nav_field_active|getkey:'parameters' %}
+		<div class="element">
+			<table cellpadding="0" cellspacing="0" id="model-values">
+				<tbody>
+					{% for data in parameter %}
+						<tr {% if forloop.counter|divisibleby:2 %} class="alternate-row" {% endif %}>
+							<th valign="top" style="text-align: center">{{data}}</th>	<td></td>
+						</tr>
+					{% endfor %}
+			</tbody></table>
+		</div>
+		{% endfor %}
+	{% endif %}
+{% else %}
+	<div class="element">
+		<table border="0" cellpadding="0" cellspacing="0">
+			<tbody>
+				<tr>
+					<th valign="top">{% trans "No data introduced" %}</th>
+					<td></td>
+				</tr>
+			</tbody>
+		</table>			
+	</div>
+{% endif %}
+		
+{% endblock %}

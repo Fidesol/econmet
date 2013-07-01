@@ -1,0 +1,83 @@
+{% extends "table_content.html" %}
+{% load i18n %}
+{% load web_extras %}	
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block centerside %}
+<form id="analisys" action="/econmet/analisys" method="POST">{% csrf_token %}
+<input name="clinical_id" type="hidden" value="{{clinical.id}}"/>	
+{% if error_message %}
+<div id="message-red">
+	<table border="0" width="64.5%" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+			<td class="red-left">{% trans "Error." %}<a href="">{{error_message}}.</a></td>
+			<td class="red-right"><a class="close-red"><img src="{{THEME_STATIC_URL}}images/table/icon_close_red.gif" alt=""></a></td>
+		</tr>
+	</tbody></table>
+</div>	
+{% endif %}
+<table border="0" cellpadding="0" cellspacing="0" id="id-form">
+	<tbody>
+	   <tr>
+           <th valing="top">ALIAS</th>
+           <td><input name='alias' id="alias_id" type="text" class="styledinput_form_1" autocomplete="off" tabindex="0"></td>
+           <td></td>
+        </tr>
+        <tr style="border-top: 1px solid black"><th></th><td></td><td></td></tr>
+		<tr>
+			<th>{% trans "Analisys type" %}</th>
+			<td>
+			<select name="analisys_type" id="analisys_type" class="chzn-select">
+				<option value="basic" {% if analisys_type == "basic" %} selected="selected" {% endif %}>{% trans "Basic" %}</option>
+				<option value="avanced" {% if analisys_type == "avanced" %} selected="selected" {% endif %}>{% trans "Avanced" %}</option>
+			</select>
+			</td>
+		</tr>		
+		{% for element in data %}
+			<tr>
+				<th valign="top" style="width: 250px">{{element|getkey:'name'}}</th>
+				<td>
+				<select name="{{element|getkey:'name'}}" id="{{element|getkey:'name'}}" multiple class="chzn-select">
+						<option value="" selected="selected"></option>
+						{% for value in element|getkey:'values' %}
+							<option value="{{value}}">{{value}}</option>
+						{% endfor %}
+					</select>									
+				</td>
+				<td></td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+<input id="submit-button" type="submit" value='{% trans "Submit" %}' class="models-submit" style="margin-left: 690px;"/>	
+</form>
+<div id="loading">
+  <img src="{{THEME_STATIC_URL}}images/shared/ajax-loader.gif" />
+</div>
+<script>
+$(document).ready(function() {
+	$("chzn-select").chosen({
+		"disable_search": true
+	});
+	
+	$('#analisys_type_container').click(function(){
+			selected = $('#analisys_type')[0].value;
+			url = '/econmet/analisys/'+ selected + '/'+'{{clinical.id}}';
+			window.location.href = url;
+			return false;		
+	});
+	$('#submit-button').click(function(){
+		showLoading();
+	});
+
+	function showLoading() {
+	  $("#loading").show();
+	}
+	
+	function hideLoading() {
+	  $("#loading").hide();
+	}
+});		
+</script>
+{% endblock %}

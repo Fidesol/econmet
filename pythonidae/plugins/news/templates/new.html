@@ -1,0 +1,16 @@
+{% extends BASE_TEMPLATE %}
+{% load i18n %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+<div id='center'>
+	{% if new.title %}
+	<span id='title' >{{new.title}}</span>
+	<br><br>
+	{% endif %}
+	{% autoescape off %}
+    	{{ new.content }}
+	{% endautoescape %}
+</div>
+{% endblock %}

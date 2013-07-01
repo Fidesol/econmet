@@ -1,0 +1,332 @@
+[
+    {
+        "pk": 1,
+        "model": "cms.language",
+        "fields": {
+            "code": "es",
+            "image_active": "languages/spanish_active_flag.png",
+            "name": "Espa\u00f1ol",
+            "image_inactive": "languages/spanish_inactive_flag.png"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "cms.language",
+        "fields": {
+            "code": "en",
+            "image_active": "languages/english_active_flag.png",
+            "name": "English",
+            "image_inactive": "languages/english_inactive_flag.png"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "cms.pagetranslation",
+        "fields": {
+            "content": "<p><span style=\"font-family: Arial, Helvetica, sans; font-size: 11px; line-height: 14px; text-align: justify;\">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></p>",
+            "model": 1,
+            "language": 1,
+            "title": "Inicio"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "cms.pagetranslation",
+        "fields": {
+            "content": "<p><span style=\"font-family: Arial, Helvetica, sans; font-size: 11px; line-height: 14px; text-align: justify;\">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span></p>",
+            "model": 1,
+            "language": 2,
+            "title": "Home"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "cms.page",
+        "fields": {
+            "url": "home",
+            "alias": "home",
+            "image": "",
+            "active": true
+        }
+    },
+    {
+        "pk": 1,
+        "model": "cms.menutranslation",
+        "fields": {
+            "model": "home",
+            "name": "Inicio",
+            "language": 1
+        }
+    },
+    {
+        "pk": 2,
+        "model": "cms.menutranslation",
+        "fields": {
+            "model": "home",
+            "name": "Home",
+            "language": 2
+        }
+    },
+    {
+        "pk": "home",
+        "model": "cms.menu",
+        "fields": {
+            "show_owner_page": true,
+            "alias": "home",
+            "page": 1,
+            "parent_menu": null
+        }
+    },
+    {
+        "pk": 1,
+        "model": "cms.fixedvaluetranslation",
+        "fields": {
+            "model": 1,
+            "value": "Contacto",
+            "language": 1
+        }
+    },
+    {
+        "pk": 2,
+        "model": "cms.fixedvaluetranslation",
+        "fields": {
+            "model": 1,
+            "value": "Contact",
+            "language": 2
+        }
+    },
+    {
+        "pk": 3,
+        "model": "cms.fixedvaluetranslation",
+        "fields": {
+            "model": 2,
+            "value": "Imprimir",
+            "language": 1
+        }
+    },
+    {
+        "pk": 4,
+        "model": "cms.fixedvaluetranslation",
+        "fields": {
+            "model": 2,
+            "value": "Print",
+            "language": 2
+        }
+    },
+    {
+        "pk": 5,
+        "model": "cms.fixedvaluetranslation",
+        "fields": {
+            "model": 3,
+            "value": "Tel\u00e9fono:",
+            "language": 1
+        }
+    },
+    {
+        "pk": 6,
+        "model": "cms.fixedvaluetranslation",
+        "fields": {
+            "model": 3,
+            "value": "Phone:",
+            "language": 2
+        }
+    },
+    {
+        "pk": 7,
+        "model": "cms.fixedvaluetranslation",
+        "fields": {
+            "model": 4,
+            "value": "E-mail",
+            "language": 1
+        }
+    },
+    {
+        "pk": 8,
+        "model": "cms.fixedvaluetranslation",
+        "fields": {
+            "model": 4,
+            "value": "E-mail",
+            "language": 2
+        }
+    },
+    {
+        "pk": 9,
+        "model": "cms.fixedvaluetranslation",
+        "fields": {
+            "model": 5,
+            "value": "Nombre:",
+            "language": 1
+        }
+    },
+    {
+        "pk": 10,
+        "model": "cms.fixedvaluetranslation",
+        "fields": {
+            "model": 5,
+            "value": "Name:",
+            "language": 2
+        }
+    },
+    {
+        "pk": 11,
+        "model": "cms.fixedvaluetranslation",
+        "fields": {
+            "model": 6,
+            "value": "Mensaje:",
+            "language": 1
+        }
+    },
+    {
+        "pk": 12,
+        "model": "cms.fixedvaluetranslation",
+        "fields": {
+            "model": 6,
+            "value": "Message:",
+            "language": 2
+        }
+    },
+    {
+        "pk": 1,
+        "model": "cms.fixedvalue",
+        "fields": {
+            "group": "contact",
+            "key": "label"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "cms.fixedvalue",
+        "fields": {
+            "group": "general",
+            "key": "print_label"
+        }
+    },
+    {
+        "pk": 3,
+        "model": "cms.fixedvalue",
+        "fields": {
+            "group": "contact",
+            "key": "phone_label"
+        }
+    },
+    {
+        "pk": 4,
+        "model": "cms.fixedvalue",
+        "fields": {
+            "group": "contact",
+            "key": "mail_label"
+        }
+    },
+    {
+        "pk": 5,
+        "model": "cms.fixedvalue",
+        "fields": {
+            "group": "contact",
+            "key": "name_label"
+        }
+    },
+    {
+        "pk": 6,
+        "model": "cms.fixedvalue",
+        "fields": {
+            "group": "contact",
+            "key": "message_label"
+        }
+    },
+    {
+        "pk": 1,
+        "model": "cms.configuration",
+        "fields": {
+            "group": "contact",
+            "data_type": "boolean",
+            "value": "1",
+            "label": "Activate page contact:",
+            "key": "active",
+            "help_text": "Should the contact page be shown in the page?"
+        }
+    },
+    {
+        "pk": 2,
+        "model": "cms.configuration",
+        "fields": {
+            "group": "general",
+            "data_type": "text",
+            "value": "Site name",
+            "label": "Site name:",
+            "key": "site_name",
+            "help_text": ""
+        }
+    },
+    {
+        "pk": 3,
+        "model": "cms.configuration",
+        "fields": {
+            "group": "contact",
+            "data_type": "text",
+            "value": "Address one",
+            "label": "Address:",
+            "key": "address1",
+            "help_text": ""
+        }
+    },
+    {
+        "pk": 4,
+        "model": "cms.configuration",
+        "fields": {
+            "group": "contact",
+            "data_type": "text",
+            "value": "Address (2)",
+            "label": "Adress (2):",
+            "key": "address2",
+            "help_text": ""
+        }
+    },
+    {
+        "pk": 5,
+        "model": "cms.configuration",
+        "fields": {
+            "group": "contact",
+            "data_type": "phone",
+            "value": "+34999111222",
+            "label": "Phone:",
+            "key": "phone1",
+            "help_text": ""
+        }
+    },
+    {
+        "pk": 6,
+        "model": "cms.configuration",
+        "fields": {
+            "group": "contact",
+            "data_type": "phone",
+            "value": "+34999888777",
+            "label": "Phone (2):",
+            "key": "phone2",
+            "help_text": ""
+        }
+    },
+    {
+        "pk": 7,
+        "model": "cms.configuration",
+        "fields": {
+            "group": "contact",
+            "data_type": "e-mail",
+            "value": "mail@server.com",
+            "label": "E-mail:",
+            "key": "mail",
+            "help_text": ""
+        }
+    },
+    {
+        "pk": 8,
+        "model": "cms.configuration",
+        "fields": {
+            "group": "theme",
+            "data_type": "text",
+            "value": "default",
+            "label": "Theme selected:",
+            "key": "selected",
+            "help_text": ""
+        }
+    }
+]

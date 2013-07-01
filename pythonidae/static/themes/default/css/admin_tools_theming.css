@@ -1,0 +1,44 @@
+/** 
+ * theming styles
+ * 
+ */
+
+#header {
+    height: 40px;
+    background-color: black;
+    color: white;
+}
+
+#header #branding h1 {
+    margin: 0;
+    padding: 10px 10px;
+    /*text-indent: -9999px;*/
+    /*background: transparent url(../images/django.png) 10px 5px no-repeat;*/
+    height: 31px;
+    /*width: 93px;*/
+    color: white;
+}
+
+div.breadcrumbs {
+    display: block;
+    padding: 10px 15px;
+    border: 0;
+    background-position: 0 -8px;
+    border-bottom: 1px solid #ededed;
+}
+
+div.breadcrumbs a {
+    display: inline;
+}
+
+div#fcms_admin_footer {
+    text-align: right;
+    margin-right: 40px;
+    color: grey;
+    font-size: 0.8em;
+}
+
+div#fcms_admin_footer a {
+    color: grey;
+
+}

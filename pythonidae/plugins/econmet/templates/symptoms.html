@@ -1,0 +1,47 @@
+{% extends "table_content.html" %}
+{% load i18n %}
+{% load web_extras %}	
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block centerside %}
+<form id="symptoms" action="/econmet/symptoms" method="POST">{% csrf_token %}
+<input name="clinical_id" type="hidden" value="{{clinical.id}}"/>
+{% if error_message %}
+<div id="message-red">
+	<table border="0" width="54.5%" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+			<td class="red-left">{% trans "Error." %}<a href="">{{error_message}}.</a></td>
+			<td class="red-right"><a class="close-red"><img src="{{THEME_STATIC_URL}}images/table/icon_close_red.gif" alt=""></a></td>
+		</tr>
+	</tbody></table>
+</div>	
+{% endif %}	
+
+<table border="0" cellpadding="0" cellspacing="0" id="id-form">
+	<tbody>
+	    <tr>
+	       <th valing="top">ALIAS</th>
+	       <td><input name='alias' id="alias_id" type="text" class="styledinput_form_1" autocomplete="off" tabindex="0"></td>
+	       <td></td>
+	    </tr>
+	    <tr style="border-top: 1px solid black"><th></th><td></td><td></td></tr>
+		{% for element in data %}
+			<tr>
+				<th valign="top">{{element|getkey:'name'}}</th>
+				<td>
+				<select name="{{element|getkey:'name'}}" id="{{element|getkey:'name'}}" class="styledselect_form_1">
+						<option value="" selected="selected"></option>
+						{% for value in element|getkey:'values' %}
+							<option value="{{value}}">{{value}}</option>
+						{% endfor %}
+					</select>									
+				</td>
+				<td></td>
+			</tr>
+		{% endfor %}
+	</tbody>
+</table>
+<input id="submit-button" type="submit" value='{% trans "Submit" %}' class="models-submit" style="margin-left: 570px;"/>	
+</form>
+{% endblock %}

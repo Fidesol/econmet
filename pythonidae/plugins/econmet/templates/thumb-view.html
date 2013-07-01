@@ -1,0 +1,83 @@
+{% extends "clinical.html" %}
+{% load i18n %}
+{% load web_extras %}	
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content-thumb %}
+{% if data_object|getkey:nav_field_active|getkey:'relation' %}
+	{% for relation in data_object|getkey:nav_field_active|getkey:'relation' %}
+		{% if relation|getkey:'data' %}
+		<div class="element">
+			<table cellpadding="0" cellspacing="0" id="model-values">
+				<tbody>
+					{% for data in relation|getkey:'data' %}
+						<tr {% if forloop.counter|divisibleby:2 %} class="alternate-row" {% endif %}>
+							<th valign="top">{{data|getkey:'name'}}:</th>	
+							{% for i in data|getkey:'value' %}
+								{% if not forloop.first %}
+									</tr>
+									<tr {% if forloop.parentloop.counter|divisibleby:2 %} class="alternate-row" {% endif %}>  
+									<th></th>
+								{% endif %}
+								<td {% if forloop.last %} class="no-border" {% endif %}>{{i}} </td> 
+								<td{% if forloop.last %} class="no-border" {% endif %}>{% if forloop.parentloop.first and forloop.first%}<img src="{{THEME_STATIC_URL}}images/shared/delete_icon.gif" title="{%trans 'Delete' %}" class="delete" align="top" onclick="delete_object({{relation|getkey:'id'}})"/>{% endif %}</td>
+							{% endfor %}
+						</tr>
+					{% endfor %}
+			</tbody></table>
+		</div>
+		{% endif %}
+	{% endfor %}
+{% else %}
+    {% if element == "illness"%}
+	   
+	   {% for sub_data in data_object|getkey:element|getkey:'data' %}
+		   <div class="element">
+				<table cellpadding="0" cellspacing="0" id="model-values">
+					<tbody>
+						{% for data in sub_data %}
+							{% if not data|getkey:'name' == "ID" and not data|getkey:'name' == "id" %} 
+								<tr {% if forloop.counter|divisibleby:2 %} class="alternate-row" {% endif %}>
+									<th valign="top" style="width: 100px">{{data|getkey:'name'}}:</th>	
+									<td>{{data|getkey:'value'}}</td> 
+								</tr>
+							{% endif %}
+						{% endfor %}
+				    </tbody>
+				</table>
+			</div>
+		{% endfor %}
+		
+	{% else %}
+	   <div class="element">
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tbody>
+					<tr>
+						<th valign="top">{% trans "No data introduced" %}</th>
+						<td></td>
+					</tr>
+				</tbody>
+			</table>		
+	   </div>
+	{% endif %}
+{% endif %}
+
+<script>
+	function delete_object(id){
+   		if(confirm('{% trans "Are you sure you want to delete this "%} {{nav_field_active}} ?')){
+			url = "/econmet/delete/{{data_object|getkey:'id'}}/{{nav_field_active}}/" + id;
+			showLoading();
+			window.location.href = url;
+			return false;
+		}   		
+    }
+	function showLoading() {
+	  $("#loading").show();
+	}
+	
+	function hideLoading() {
+	  $("#loading").hide();
+	}
+</script>
+{% endblock %}

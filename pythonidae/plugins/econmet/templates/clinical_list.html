@@ -1,0 +1,339 @@
+{% extends "table_content.html" %}
+{% load i18n %}
+{% load web_extras %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block leftside %} 
+<!--  start table-content  -->
+
+<div id="table-content">
+	
+
+	{% if message %} 
+	<!--  start message-green -->
+	<div id="message-green">
+		<table border="0" width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td class="green-left">{{message}} </td>
+				<td class="green-right"><a class="close-green"><img src="{{THEME_STATIC_URL}}images/table/icon_close_green.gif"   alt="" /></a></td>
+			</tr>
+		</table>
+	</div>
+	<!--  end message-green -->
+	{% endif %}
+	{% if error_message %}
+	<!--  start message-red -->
+	<div id="message-red">
+		<table border="0" width="100%" cellpadding="0" cellspacing="0">
+			<tr>
+				<td class="red-left">{% trans "Error." %} <a href="">{{ error_message }}</a></td>
+				<td class="red-right"><a class="close-red"><img src="{{THEME_STATIC_URL}}/images/table/icon_close_red.gif"   alt="" /></a></td>
+			</tr>
+		</table>
+	</div>
+	<!--  end message-red -->	
+	{% endif %} 
+	<!--  start product-table ..................................................................................... -->
+	<form id="mainform" action="">
+		<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-datatable">
+			<thead>
+			<tr>
+				<th class="table-header-check"></th>
+				{% for field in fields %}
+					{% if not field.name == "id" and not field.name == "valid_to_study" %} 
+						<th class="table-header-repeat line-left minwidth-1"><a href="">{{field.verbose_name|capfirst}}</a></th>
+					{% endif %}
+				{% endfor %} 
+				<th class="table-header-options line-left"><a href="">{% trans "Options" %}</a></th>
+			</tr>
+			</thead>
+			<tbody>
+			{% for object in object_model %}
+			<tr {% if forloop.counter|divisibleby:2 %} class="alternate-row" {% endif %}>
+				<td>
+					<input name="radio" type="radio" id="{{object.id}}"/>
+				</td>
+				{% for field in fields %}
+					{% if not field.name == "id" and not field.name == "valid_to_study"%} 
+						<td>
+							{% if object|getkey:field.attname %}
+								{% if object|getkey:field.attname|isModel %}
+										{% for element in object|getkey:field.attname %}
+											<option value="{{element.0}}" >{{element.1}}</option>
+										{% endfor %}
+							
+								{% else %}
+									{{object|getkey:field.attname}}
+								{% endif %}
+							{% else %}
+							     &nbsp;  &nbsp; - - - 
+							{% endif %}
+						</td>
+					{% endif %}
+				{% endfor %} 
+				<td class="options-width">
+					<a href="/econmet/{{module_name}}/{{object.id}}?status=view" title='{% trans "View"%}' class="icon-5 info-tooltip"></a>
+					{% if profile == 'Admin' and object|getkey:'illness' %}
+						{% if object|getkey:'valid_to_study' %}
+							<a title='{% trans "Valid to study" %}'  class="icon-3 info-tooltip" onclick="invalidateStudy({{object.id}})"></a>
+						{% else %}
+							<a href="/econmet/validate/{{object.id}}" title='{% trans "Valid to study" %}'  class="icon-2 info-tooltip"></a>
+						{% endif %}
+					{% endif %}
+				</td>
+			</tr>
+			{% endfor %}
+			</tbody>
+		</table>
+		<!--  end product-table................................... -->
+	</form>
+</div>
+<!--  end content-table  -->
+<!--  start actions-box ............................................... -->
+<div id="actions-box">
+	<input type="button" value='{% trans "Actions" %}' class="action-slider"/>
+	<div id="actions-box-slider">
+		{% if profile == 'medicalprofile' %}
+			<input type="button" value='{% trans "New" %}' class="action-new"/>
+		{% endif %}
+		<input type="button" value='{% trans "Edit" %}' class="action-edit"/>
+	</div>
+	<div class="clear"></div>
+</div>
+<!-- end actions-box........... -->
+
+<div class="clear"></div>
+
+<script>
+	function openElement(model, object_id){
+		selected = $('#'+model+'-'+object_id)[0].value;
+		url = '/econmet/{{module_name}}/'+ object_id +'/'+ model
+		window.location.href = url;
+		return false;
+	
+	}
+	
+
+	 $(document).ready(function(){
+		 $.fn.dataTableExt.oApi.fnPagingInfo = function ( oSettings )
+		 {
+		     return {
+		         "iStart":         oSettings._iDisplayStart,
+		         "iEnd":           oSettings.fnDisplayEnd(),
+		         "iLength":        oSettings._iDisplayLength,
+		         "iTotal":         oSettings.fnRecordsTotal(),
+		         "iFilteredTotal": oSettings.fnRecordsDisplay(),
+		         "iPage":          Math.ceil( oSettings._iDisplayStart / oSettings._iDisplayLength ),
+		         "iTotalPages":    Math.ceil( oSettings.fnRecordsDisplay() / oSettings._iDisplayLength )
+		     };
+		 }
+		 $.extend( $.fn.dataTableExt.oPagination, {
+	        "bootstrap": {
+	            "fnInit": function( oSettings, nPaging, fnDraw ) {
+	                var oLang = oSettings.oLanguage.oPaginate;
+	                var fnClickHandler = function ( e ) {
+	                    e.preventDefault();
+	                    if ( oSettings.oApi._fnPageChange(oSettings, e.data.action) ) {
+	                        fnDraw( oSettings );
+	                    }
+	                };
+
+	                $(nPaging).addClass('pagination').append(
+	                    '<ul>'+
+	                        '<li class="prev disabled"><a href="#">&larr; '+oLang.sPrevious+'</a></li>'+
+	                        '<li class="next disabled"><a href="#">'+oLang.sNext+' &rarr; </a></li>'+
+	                    '</ul>'
+	                );
+	                var els = $('a', nPaging);
+	                $(els[0]).bind( 'click.DT', { action: "previous" }, fnClickHandler );
+	                $(els[1]).bind( 'click.DT', { action: "next" }, fnClickHandler );
+	            },
+
+	            "fnUpdate": function ( oSettings, fnDraw ) {
+	                var iListLength = 5;
+	                var oPaging = oSettings.oInstance.fnPagingInfo();
+	                var an = oSettings.aanFeatures.p;
+	                var i, j, sClass, iStart, iEnd, iHalf=Math.floor(iListLength/2);
+
+	                if ( oPaging.iTotalPages < iListLength) {
+	                    iStart = 1;
+	                    iEnd = oPaging.iTotalPages;
+	                }
+	                else if ( oPaging.iPage <= iHalf ) {
+	                    iStart = 1;
+	                    iEnd = iListLength;
+	                } else if ( oPaging.iPage >= (oPaging.iTotalPages-iHalf) ) {
+	                    iStart = oPaging.iTotalPages - iListLength + 1;
+	                    iEnd = oPaging.iTotalPages;
+	                } else {
+	                    iStart = oPaging.iPage - iHalf + 1;
+	                    iEnd = iStart + iListLength - 1;
+	                }
+
+	                for ( i=0, iLen=an.length ; i<iLen ; i++ ) {
+	                    // Quitando elementos intermedios
+	                    $('li:gt(0)', an[i]).filter(':not(:last)').remove();
+
+	                    // Añadiendo items de lista
+	                    
+	                    sClass = (j==oPaging.iPage+1) ? 'class="active"' : '';
+                        $('<li '+sClass+'><a href="#">'+1+'</a></li>')
+                            .insertBefore( $('li:last', an[i])[0] )
+                            .bind('click', function (e) {
+                                e.preventDefault();
+                                oSettings._iDisplayStart = (parseInt($('a', this).text(),10)-1) * oPaging.iLength;
+                                fnDraw( oSettings );
+                            } );
+
+                      
+	                    for ( j=iStart+1 ; j<iEnd ; j++ ) {
+	                        sClass = (j==oPaging.iPage+1) ? 'class="active"' : '';
+	                        $('<li '+sClass+'><a href="#">'+j+'</a></li>')
+	                            .insertBefore( $('li:last', an[i])[0] )
+	                            .bind('click', function (e) {
+	                                e.preventDefault();
+	                                oSettings._iDisplayStart = (parseInt($('a', this).text(),10)-1) * oPaging.iLength;
+	                                fnDraw( oSettings );
+	                            } );
+	                    }
+
+
+	                    sClass = (j==oPaging.iPage+1) ? 'class="active"' : '';
+                        $('<li '+sClass+'><a href="#">'+oPaging.iTotalPages+'</a></li>')
+                            .insertBefore( $('li:last', an[i])[0] )
+                            .bind('click', function (e) {
+                                e.preventDefault();
+                                oSettings._iDisplayStart = (parseInt($('a', this).text(),10)-1) * oPaging.iLength;
+                                fnDraw( oSettings );
+                            } );
+	                    
+	                    // Quitando/añadiendo clases desactivadas
+	                    if ( oPaging.iPage === 0 ) {
+	                        $('li:first', an[i]).addClass('disabled');
+	                    } else {
+	                        $('li:first', an[i]).removeClass('disabled');
+	                    }
+
+	                    if ( oPaging.iPage === oPaging.iTotalPages-1 || oPaging.iTotalPages === 0 ) {
+	                        $('li:last', an[i]).addClass('disabled');
+	                    } else {
+	                        $('li:last', an[i]).removeClass('disabled');
+	                    }
+	                }
+	            }
+		    }
+		 });
+		 
+		 $('#product-datatable').dataTable({		    
+		    "sDom" : "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>",
+		    "sPaginationType": "bootstrap",
+		    "aoColumns": [
+	           
+	              null,
+	           
+	              null,
+	           
+	              null,
+	           
+	              null,
+	           
+	              null,
+	              
+	              null, 
+	           
+	           { "bSearchable": false,"bSortable": false }
+		       ],
+		    "oLanguage": {
+		        "sSearch": "Buscar:",
+		        "sEmptyTable": "Sin datos para mostrar",
+		        "sLengthMenu" : "Mostrar _MENU_ elementos por página",
+		        "sZeroRecords" : "No se encontraron resultados",
+		        "sInfo" : "Mostrando _START_ a _END_ de _TOTAL_ resultados",
+		        "sInfoEmpty" : "Showing 0 to 0 of 0 records",
+		        "sInfoFiltered" : "(filtrados de _MAX_ registros totales)",
+		        "oPaginate" : {
+		            "sNext" : "Siguiente",
+		            "sPrevious" : "Anterior"
+		        }
+		    }
+		});
+		$.extend($.fn.dataTableExt.oStdClasses, {
+		    "sWrapper" : "dataTables_wrapper form-inline"
+		});
+	 });
+	 
+
+    $(".action-new").click(function(){
+    	url = "/econmet/{{module_name}}?status=new" 
+    	window.location.href = url; 
+    	return false; 
+	});
+
+	
+    $(".action-edit").click(function(){ 
+		try{ 
+ 	        var id_selected = $('input[name=radio]:checked')[0].id; 
+ 	        if (id_selected != ''){ 
+ 	        	url = "/econmet/{{module_name}}/"+id_selected+'?status=view' 
+ 	        	window.location.href = url; 
+ 	        	return false; 
+ 	        } 
+		} 
+		catch(err){ 
+ 	        createTooltip.call({ elements: { tooltip: $('.table-header-check') } }); 
+		} 
+	});
+	
+
+	function createTooltip(){
+      // Initialize the tooltip on the previous tooltip
+      this.elements.tooltip.qtip(
+      {
+         content: '{% trans "You should select a" %}{{title}}.',
+         position: {
+            corner: {
+               tooltip: 'rightMiddle',
+               target: 'bottomLeft'
+            },
+            adjust: {
+               resize: true,
+               scroll: true
+            }
+         },
+         show: { ready: true }, // Show the tooltips when they're ready
+         hide: false, // Don't hide them
+		 style: {
+		 	  width: { min: 250 },
+	          border: {
+	             width: 5,
+	             radius: 5
+	          },
+	          padding: 7, 
+	          textAlign: 'center',
+	          'font-size' : 12,
+	          'line-height': '14px',
+	          tip: true, // Give it a speech bubble tip with automatic corner detection
+	          name: 'green' 
+	       }
+      });
+   }	
+   
+	function invalidateStudy(id){
+   		if(confirm('{% trans "Are you sure you want to invalidate this clinical case" %}?')){
+			if (id != ''){
+				url = "/econmet/validate/"+id
+				window.location.href = url;
+				return false;
+			}
+		}   		
+   }
+</script>
+
+{%endblock%}
+
+{%block rigthside%}
+{%endblock%}
+
+{% block form %}
+{% endblock %}

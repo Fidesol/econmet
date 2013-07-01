@@ -1,0 +1,146 @@
+{% extends "econmet/base_login.html" %}
+{% load url from future %}
+{% load i18n %}
+{% load web_extras %}
+{% block formcontent %}
+<div id="registerbox">
+	<!--  start login-inner -->
+	<div id="login-inner">
+		<form action="#" class="form-stacked" method="post">{% csrf_token %}
+			<table border="0" cellpadding="0" cellspacing="0">
+				<tr>
+					<th>{% trans "User type" %}</th>
+					<td>
+					<select name="profile_type" id="profile_type" class="login-select" onclick="openElement()">
+						<option value="medical" {% if profile_type == "medical" %} selected="selected" {% endif %}>{% trans "Medical" %}</option>
+						<option value="laboratory" {% if profile_type == "laboratory" %} selected="selected" {% endif %}>{% trans "Laboratory" %}</option>
+					</select>
+					</td>
+				</tr>
+				{% for field in fields %}
+					{% if not field.name == "id" %}
+						<tr {% if field.name == "laboratory" and not laboratory_list|isList %} style="visibility: hidden" {% endif %}>
+							<th>{{ field.verbose_name|capfirst }}</th>
+							<td>
+							{% if field.name == "laboratory"%}
+								<select name="laboratory" id="laboratory" class="login-select">
+									{% for laboratory in laboratory_list %}
+										<option value="{{laboratory.id}}">{{laboratory.user.first_name}} {{laboratory.user.last_name}}</option>
+									{%endfor%}
+								</select>
+							{%else %}
+								<input {% if 'pass' in field.name %} type = "password" {% else %} {%if 'mail' in field.name %} type = "text" {% else %} type="text" {% endif %} {% endif %} name="{{field.name|slugify}}" id="{{field.name|slugify}}" value="{{values|getkey:field.name}}" class="login-inp" />
+							{% endif %}
+							</td>
+						</tr>
+					{% endif %}			
+				{% endfor %}
+				<tr>
+					<th></th>
+					<td valign="top">
+						<label for="login-error-message" style="visibility: {% if error_message %} visible; {% else %} hidden; {% endif %}">{{error_message}}</label>
+						<div class="clear"></div>
+					</td>
+				</tr>
+				<tr>
+					<th></th>
+					<td>
+					<input id="submit" type="submit" value='{% trans "Submit" %}' class="submit-register"/>								
+					</td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<!--  end login-inner -->
+	<div class="clear"></div>
+</div>
+<!--  end loginbox -->
+
+<script>
+	function openElement(){
+		selected = $('#profile_type')[0].value;
+		url = '/econmet/register/'+ selected;
+		window.location.href = url;
+		return false;
+	
+	}
+	
+	function checkPassword(){
+	    var hasError = false;
+	    var passwordVal = $("#password").val();
+	    var checkVal = $("#confirm-password").val();
+	    if (passwordVal == '') {
+	        $("#password").after('<br/><span class="error">{% trans "Please enter a password."%}</span>');
+	        hasError = true;
+	    } else if (checkVal == '') {
+	        $("#confirm-password").after('<br/><span class="error">{% trans "Please re-enter your password."%}</span>');
+	        hasError = true;
+	    } else if (passwordVal != checkVal ) {
+	        $("#confirm-password").after('<br/><span class="error">{% trans "Passwords do not match."%}</span>');
+	        hasError = true;
+	    }
+	    return hasError		
+	}
+	
+
+	function checkEmail(email) {
+		var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+		if (!filter.test(email))
+			return true;
+		return false;
+	}
+	
+	
+	function checkMail(){
+	    var hasError = false;
+	    var mailVal = $("#mail").val();
+	    var checkVal = $("#confirm-mail").val();
+	    if (mailVal == '') {
+	        $("#mail").after('<br/><span class="error">{% trans "Please enter a mail." %}</span>');
+	        hasError = true;
+	    } else if (checkEmail(mailVal)){
+	    	$("#mail").after('<br/><span class="error">{% trans "Please enter a valid mail." %}</span>');
+	        hasError = true;
+	    } else if (checkVal == '') {
+	        $("#confirm-mail").after('<br/><span class="error">{% trans "Please re-enter your mail." %}</span>');
+	        hasError = true;
+	    } else if (mailVal != checkVal ) {
+	        $("#confirm-mail").after('<br/><span class="error">{% trans "Mails do not match." %}</span>');
+	        hasError = true;
+	    }
+	    return hasError		
+	}
+	
+	function checkFields(){
+		if ($("#username").val() == ""){
+			$("#username").after('<br/><span class="error">{% trans "Please enter a username." %}</span>');
+			return true
+		} else if ($("#name").val() == ""){
+			$("#name").after('<br/><span class="error">{% trans "Please enter a name." %}</span>');
+			return true
+		} else if ($("#surname").val() == ""){
+			$("#surname").after('<br/><span class="error">{% trans "Please enter a surname." %}</span>');
+			return true
+		}  
+		return false
+	}	
+		
+
+	jQuery(function(){
+	    $("#submit").click(function(){
+		    $(".error").hide();
+		    if(checkPassword()) {return false;}
+		    if(checkMail()) {return false;}
+		    if(checkFields()) {return false;}
+		});
+		
+		$("#mail").change(function(){
+			$(".error").hide();
+			if(checkEmail($("#mail").val())){
+				$("#mail").after('<br/><span class="error">{% trans "Please enter a valid mail." %}</span>');
+				$("#mail").focus();
+			}
+		});
+	});			
+</script>	
+{% endblock %}

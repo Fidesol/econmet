@@ -1,0 +1,57 @@
+{% extends BASE_TEMPLATE %}
+{% load i18n %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+<script>
+{% if img_height %}
+	$(document).ready(function(){
+	    if ({{img_height}} > $("#right").height()) {
+	    	h = {{img_height}} -30.0;
+	    }else{
+	    	h = $("#right").height() - 50.0;
+	    }
+	    $("#div-border").height(h);
+	});						
+{% else %}
+	$(document).ready(function(){
+	    h = $("#center").height() + 50.0;
+	    $("#div-border").height(h);
+	});	
+{% endif %}
+</script>
+{% if img %}
+<div id='left' style='width:{{img_width}}px'>
+		<div id="grafic1"><img id="grafic" src="{{img.url}}"></div>	
+</div>
+<div id='right' style="width:{{data_width}}px">
+	{% for new in news %}
+		<div id='news'>
+			{% if new.title %}
+			<span id='title' ><a href="/news/new/{{new.id}}/">{{new.title}}</a></span>
+			{% endif %}
+			<p>
+				{% autoescape off %}
+			    	{{ new.content|removetags:'p' }} 
+				{% endautoescape %}
+				<a id='link_more' href="/new/{{new.id}}">{{ more_label }}</a>
+			</p>
+		</div>
+	{% endfor %}
+</div>
+{% else %}
+<br><br>
+<div id='center'>
+	{% for new in news %}
+		{% if new.title %}
+		<span id='title' ><a href="/news/new/{{new.id}}/">{{new.title}}</a></span>
+		{% endif %}
+		{% autoescape off %}
+	    	{{ new.content }}
+		{% endautoescape %}
+		<a id='link_more' href="/new/{{new.id}}">{{ more_label }}</a>
+	{% endfor %}
+</div>
+{% endif%}
+{% endblock %}

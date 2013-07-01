@@ -1,0 +1,30 @@
+{% extends BASE_TEMPLATE %}
+{% load i18n %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+
+{% for product in products %}
+<div id='element'>
+	<div id='element-left'>
+			{% if product.productImage.all %}
+				<div id="grafic2"><img id="element-img" src="{{ product.productImage.all.0.image.url }}"></div>
+			{% else %}
+				<div id="grafic2"><img id="element-img" src="/static/uploads/sin_imagen.png"></div>
+			{% endif %}	
+	</div>
+	<div id='element-right'>
+		{% if product.name %}
+		<span id='title'><a href="/{{product.id}}">{{product.name}}</a></span>
+		<br>
+		{% endif %}
+		{{ product.description|removetags:"p"|truncatewords_html:70|safe  }}
+	</div>
+	{% if not forloop.last %}
+	<br>
+	<hr/>	
+	{% endif %}
+</div>	
+{% endfor %}
+{% endblock %}

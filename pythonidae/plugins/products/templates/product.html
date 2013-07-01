@@ -1,0 +1,69 @@
+{% extends BASE_TEMPLATE %}
+{% load i18n %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+<script>
+{% if img_height %}
+	$(document).ready(function(){
+	    if ({{img_height}} > $("#right").height()) {
+	    	h = {{img_height}} -30.0;
+	    }else{
+	    	h = $("#right").height() - 50.0;
+	    }
+	    $("#div-border").height(h);
+	});						
+{% else %}
+	$(document).ready(function(){
+	    h = $("#center").height() + 50.0;
+	    $("#div-border").height(h);
+	});	
+{% endif %}
+</script>
+{% if img %}
+	{% if img|length == 1 %}
+		<div id='left' style='width:{{img_width}}px'>
+				<div id="grafic1"><img id="grafic2" src="{{img.0.image.url}}"></div>	
+		</div>
+		<div id='right' style="width:{{data_width}}px">
+			{% if product.name %}
+			<span id='title' >{{product.name}}</span>
+			<br>
+			{% endif %}
+			{% autoescape off %}
+		    	{{ product.description }}
+			{% endautoescape %}
+		</div>	
+	{% else %}
+		<div id='center'>
+			{% if product.name %}
+			<span id='title' >{{product.name}}</span>
+			<br><br>
+			{% endif %}
+			{% autoescape off %}
+		    	{{ product.description }}
+			{% endautoescape %}
+		</div>
+		<div id="container-images" align="center">
+		{% for image in img %}
+			<div id="grafic1"><img id="grafic-big" src="{{image.image.url}}"></div>
+			<br><br>
+		{% endfor %}
+		</div>	
+	{% endif %}
+{% else %}
+<div id='center'>
+	{% if product.name %}
+	<span id='title' >{{product.name}}</span>
+	<br><br>
+	{% endif %}
+	{% autoescape off %}
+    	{{ product.description }}
+	{% endautoescape %}
+</div>
+{% endif%}
+<div id='container-link'>
+	<div id='link'><a href="/product_list">{{list_label}}</a></div>
+</div>
+{% endblock %}

@@ -1,0 +1,431 @@
+body {
+font-family: Verdana, Arial;
+font-size:small;
+color : white;
+background: #2395df url(images/background.png);
+background-repeat:no-repeat;
+background-position:top; 
+margin: 0px;
+}
+
+#header {
+width: 950px;
+height: 280px;
+margin: 0px auto;
+padding: 10px 0px;
+}
+
+h1 {
+color: #6d99b4;
+padding: 10px;	
+}
+
+#menu {
+height: 26px;
+margin: 0px auto;
+background-color: white;
+border: 1px solid #006ba8;
+text-align: center;
+}
+
+#menu ul {
+margin: 0px;
+padding: 0px;
+}
+
+#menu li {
+display: inline-block;
+height: 20px;
+margin: 0px auto;
+width: 185px !important;
+background-color: white;
+border: 3px solid white;		
+}
+
+#menu li.active {
+height: 20px;
+margin: 0px auto;
+background-color: #006ba8;
+border: 3px solid #006ba8;		
+}
+
+#menu li.active a {
+color: white;
+}
+
+#menu a {
+margin: 3px auto;
+text-transform: uppercase;
+text-decoration: none;
+text-align: center;
+font-size: 14px;
+font-weight: bold;
+color: #006ba8;
+font-family: Verdana, Arial;
+min-width:100px;
+/* Firefox */
+display:-moz-box;
+-moz-box-orient:horizontal;
+-moz-box-pack:center;
+-moz-box-align:center;
+
+/* Safari and Chrome */
+display:-webkit-box;
+-webkit-box-orient:horizontal;
+-webkit-box-pack:center;
+-webkit-box-align:center;
+}
+
+#menu p#menu_line{
+display: inline;
+border-right: 1px solid #006ba8;
+}
+
+#menu p#menu_line.active{
+border-right: none;
+}
+
+#left {
+float: left;
+padding: 15px 0px 15px 0px;
+}
+
+#grafic {
+max-width:350px !important;
+border: 1px solid white;
+}
+#grafic-big {
+max-width:500px;
+}
+#grafic1 {
+max-width:350px !important;
+}
+#grafic2 {
+max-width:350px !important;
+text-align: center;
+}
+#right {
+float: right;
+text-align:justify;
+padding: 15px 0px 15px 0px;
+}
+
+#center {
+width: 900px;
+margin 0px auto;
+padding: 15px 0px 15px 40px;
+text-align:justify;
+}
+
+#title{
+font-variant: normal; 
+font-weight: bold; 
+color: #ffe10b;
+}
+
+#title a{
+text-decoration: none;
+color: #ffe10b;		
+}
+
+#element {
+width: 900px;
+margin 0px auto;
+padding: 20px 0px 20px 40px;
+text-align:justify;
+float:left;	
+}
+
+#news {
+margin 0px auto;
+text-align:justify;
+float:left;	
+}
+
+#element-left {
+text-align: center;
+float:left;
+width: 200px;
+padding: 0px 0px 15px 0px;
+}
+
+#element-right {
+float: left;
+width: 600px;
+padding: 0px 0px 10px 20px;	
+}
+
+#element-img {
+max-height: 150px;
+max-width: 200px;
+}
+
+hr {
+clear: both; 
+background-color: white;
+width: 100%;
+border: 1px solid white;
+}
+
+#container {
+/* Explorer */
+background:  url(images/background-content2.png);
+background-color: rgba(13, 88, 145, 0.5);
+background-attachment:fixed;
+background-clip:padding-box;
+min-height: 400px;
+padding-bottom: 19px;
+}
+
+#content {
+width: 966px;
+margin: 0px auto;
+padding: 15px 0px 0px 0px;
+}
+
+#footer {
+clear: both;
+width: 966px;
+margin: 0px auto;
+padding: 2px;
+}
+
+
+#line {
+width: 60px;
+float: left;
+padding: 15px 0px 0px 0px;
+margin: 0px 22px 0px 0px;
+}
+
+#div-border {
+border-right: 1px solid white;
+width: 1px;
+height: 500px;
+padding: 20px 20px 20px 22px;
+}
+
+#submenu {
+width: 150px;
+float: left;
+margin: 0px auto;
+padding: 15px 0px 0px 0px;
+}
+
+#submenu li{
+width: 150px;
+padding: 7px 0px 7px 0px;
+display: block;
+background-color: white;
+border: 1px solid #006ba8;	
+/* Firefox */
+display:-moz-box;
+-moz-box-orient:horizontal;
+-moz-box-pack:center;
+-moz-box-align:center;
+
+/* Safari and Chrome */
+display:-webkit-box;
+-webkit-box-orient:horizontal;
+-webkit-box-pack:center;
+-webkit-box-align:center;
+}
+
+#submenu ul {
+display: table-cell;
+vertical-align: middle;
+margin: 0px;
+padding: 0px;
+list-style: none;
+text-align: center;
+}
+
+#submenu li a {
+text-decoration: none;
+font-size: 14px;
+font-weight: bold;
+color: #006ba8;
+min-width:100px;
+}
+
+#submenu li.active a {
+text-decoration: none;
+text-align: center;
+font-size: 14px;
+font-weight: bold;
+min-width:100px;	
+color: white;
+}
+
+#submenu li.active {
+background-color: #006ba8;
+border: 1px solid white;	
+}
+
+#extra_info {	
+padding: 15px 0px 0px 0px;
+float: left;
+width: 500px;
+}
+
+#extra_info ul {
+margin: 0px 0px 0px 0px;
+padding: 0px;
+}
+
+#extra_info li{
+text-align: center;
+display: inline-block;
+width: 120px !important;
+}
+
+#extra_info a {
+text-decoration: none;
+text-align: center;
+font-size: 14px;
+font-weight: bold;
+color: #042d6b;
+/* Firefox */
+display:-moz-box;
+-moz-box-orient:horizontal;
+-moz-box-pack:center;
+-moz-box-align:center;
+
+/* Safari and Chrome */
+display:-webkit-box;
+-webkit-box-orient:horizontal;
+-webkit-box-pack:center;
+-webkit-box-align:center;
+}
+
+#extra_info p#menu_line{
+display: inline;
+border-right: 1px solid white;
+}
+
+
+#link_more{
+width: 150px;
+height: 25px;
+color: white;
+text-decoration: none;
+}
+
+#container-link {
+float: right;
+text-align: center;
+margin: 0px 0px 10px 0px;
+}
+
+#link {
+clear: both;
+width: 150px;
+padding: 7px 0px 7px 0px;
+background-color: white;
+/* Firefox */
+display:-moz-box;
+-moz-box-orient:horizontal;
+-moz-box-pack:center;
+-moz-box-align:center;
+
+/* Safari and Chrome */
+display:-webkit-box;
+-webkit-box-orient:horizontal;
+-webkit-box-pack:center;
+-webkit-box-align:center;
+border: 1px solid #006ba8;
+}
+
+#link a{
+text-decoration: none;
+font-weight: bold;
+color: #006ba8;
+font-size: 12px;
+}
+
+#language ul {
+float: right;
+margin: 0px;
+padding: 15px 0px 10px 0px;
+display: inline;
+list-style: none;
+text-align: left;
+}
+
+#language li {
+display: inline;
+}
+
+#enviar {
+float: right;
+width: 150px;
+height: 25px;
+background-color: white;
+border: 1px solid #006ba8;
+text-align: center;
+font-weight: bold;
+font-size: 12px;
+color: #006ba8;
+}
+
+#info {
+padding: 20px 50px 0px 0px;
+width: 400px;
+}
+
+#questionary{
+left:50%;
+margin-left:55px;
+}
+
+.input_radio_questionary {
+display: inline;
+margin-bottom: 15px;
+}
+
+.input_checkbox_questionary {
+display: inline;
+margin-bottom: 15px;
+}
+
+.input_text_questionary {
+padding: 0px 0px 0px 0px;
+margin-bottom: 15px;
+background-color: white;
+border: 0px;
+}
+
+.input_text_parameter {
+background-color: white;
+border: 0px;	
+}
+
+.input_text_contact {
+background-color: white;
+border: 0px;		
+}
+
+.label_questionary.required{
+font-weight: bold;
+}
+
+form.cmxform label.error {
+background: url(images/uncheck.png) no-repeat 10px 2px;
+padding-left: 35px;
+padding-bottom: 2px;
+font-weight: bold;
+color: #ff7d13;
+font-size: 11px;
+}
+
+form.cmxform label.checked {
+background: url(images/check1.png) no-repeat 10px 2px;
+}
+
+
+#container-images{
+clear: both;
+}
+
+
+

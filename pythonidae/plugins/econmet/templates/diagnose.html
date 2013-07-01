@@ -1,0 +1,52 @@
+{% extends "table_content.html" %}
+{% load i18n %}
+{% load web_extras %}	
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block centerside %}
+<form id="diagnose" action="/econmet/diagnose" method="POST">{% csrf_token %}
+<input name="clinical_id" type="hidden" value="{{clinical.id}}"/>	
+{% if error_message %}
+<div id="message-red">
+	<table border="0" width="64.5%" cellpadding="0" cellspacing="0">
+		<tbody><tr>
+			<td class="red-left">{% trans "Error." %}<a href="">{{error_message}}.</a></td>
+			<td class="red-right"><a class="close-red"><img src="{{THEME_STATIC_URL}}images/table/icon_close_red.gif" alt=""></a></td>
+		</tr>
+	</tbody></table>
+</div>	
+{% endif %}
+<table border="0" cellpadding="0" cellspacing="0" id="id-form" style="height: 200px">
+	<tbody>
+		{% for element in data %}
+			<tr>
+				<th valign="top" style="width: 250px">{{element|getkey:'verbose_name'}}</th>
+				<td><input name='{{element|getkey:'name'}}' id="{{element|getkey:'name'}}_id" type={% if element|getkey:'name' == 'rate_percent' %}"number"{% else %}"text"{% endif %} class="styledinput_form_1" autocomplete="off" tabindex="0" value="{{element|getkey:'value'}}"></td>
+				<td></td>
+			</tr>
+		{% endfor %}
+		<tr></tr>
+	</tbody>
+</table>
+<input id="submit-button" type="submit" value='{% trans "Submit" %}' class="models-submit" style="margin-left: 690px;"/>	
+</form>
+<div id="loading">
+  <img src="{{THEME_STATIC_URL}}images/shared/ajax-loader.gif" />
+</div>
+<script>
+$(document).ready(function() {
+	$('#submit-button').click(function(){
+		showLoading();
+	});
+
+	function showLoading() {
+	  $("#loading").show();
+	}
+	
+	function hideLoading() {
+	  $("#loading").hide();
+	}
+});		
+</script>
+{% endblock %}

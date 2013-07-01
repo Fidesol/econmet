@@ -1,0 +1,55 @@
+{% extends BASE_TEMPLATE %}
+{% load i18n %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+<script>
+	$(document).ready(function(){
+	    h = $("#submenu").height() - 53.0;
+	    $("#div-border").height(h);
+	    h = $("#container").height() - 50.0;
+	    $("#line").height(h);
+	});	
+</script>
+{% if img %}
+<div id='left' style='width:{{img_width}}px'>
+		<div id="grafic1"><img  id="grafic" src="{{img.url}}" onclick="centerPopup(); loadPopup();"></div>	
+</div>
+<div id='right' style="width:{{data_width}}px">
+	{% if page.title %}
+	<span id='title' >{{page.title}}</span>
+	<br>
+	{% endif %}
+	{% autoescape off %}
+    	{{ page.content }}
+	{% endautoescape %}
+</div>
+{% else %}
+<div id='center'>
+	{% if page.title %}
+	<span id='title' >{{page.title}}</span>
+	<br>
+	{% endif %}
+	{% autoescape off %}
+    	{{ page.content }}
+	{% endautoescape %}
+</div>
+{% endif%}
+{% if link %}
+<div id='container-link'>
+	<div id='link'><a href="{{link.url}}">{{link.text}}</a></div>
+</div>
+<br><br><br>
+{% endif %}
+
+<!-- Popup -->
+{% if img %}
+	<div id="popupImage" style="width: {{page.image.width}}px; height: {{page.image.height}}px;">  
+		<img src="{{img.url}}" onclick="disablePopup();">  
+	</div>
+{% endif %}  
+<div id="backgroundPopup"></div>  
+
+{% endblock %}
+

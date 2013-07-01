@@ -1,0 +1,302 @@
+{% extends "table_content.html" %}
+{% load i18n %}
+{% load web_extras %}	
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block leftside %}
+<!--  start table-content  -->
+<div id="table-content">
+
+	{% if message %}
+		<!--  start message-green -->
+		<div id="message-green">
+		<table border="0" width="100%" cellpadding="0" cellspacing="0">
+		<tr>
+			<td class="green-left">{{message}} </td>
+			<td class="green-right"><a class="close-green"><img src="{{THEME_STATIC_URL}}images/table/icon_close_green.gif"   alt="" /></a></td>
+		</tr>
+		</table>
+		</div>
+		<!--  end message-green -->
+	{% endif %}
+
+ 
+		<!--  start product-table ..................................................................................... -->
+	<form id="mainform" action="">
+	<table border="0" width="100%" cellpadding="0" cellspacing="0" id="product-table">
+	<tr>
+		<th class="table-header-check"></th>
+		{% for field in fields %}
+			{% if not field.name == "id" %}
+				<th class="table-header-repeat line-left minwidth-1"><a href="">{{field.name|capfirst}}</a></th>
+			{% endif %}
+		{% endfor %}
+		<th class="table-header-options line-left"><a href="">{% trans "Options" %}</a></th>
+	</tr>
+	{% for object in object_model.object_list %}
+		<tr {% if forloop.counter|divisibleby:2 %} class="alternate-row" {% endif %}>
+			<td><input  id="{{object.id}}" type="radio" name="{{title}}"/></td>
+			{% for field in fields %}
+				{% if not field.name == "id" %}
+					
+					<td>{% if object|getkey:field.attname %}{{object|getkey:field.attname}}{% endif %}</td>
+					
+				{% endif %}
+			{% endfor %}
+			<td class="options-width">
+			<a href="/econmet/{{verbose_model}}/{{object.id}}?page={{ object_model.number}}" title="Edit" class="icon-1 info-tooltip"></a>
+			<a title="Delete" class="icon-2 info-tooltip" onclick="deleteElement('{{ object.id}}')"></a>
+			</td>
+		</tr>
+	{% endfor %}
+	</table>
+	<!--  end product-table................................... --> 
+	</form>
+</div>
+<!--  end content-table  -->
+
+<!--  start actions-box ............................................... -->
+<div id="actions-box">
+	<a href="" class="action-slider"></a>
+	<div id="actions-box-slider">
+		<a href="#" class="action-new" onclick="$('#form-container').show()">{% trans "New" %}</a>
+		<a href="" class="action-edit" >{% trans "Edit" %}</a>
+		<a href="" class="action-delete">{% trans "Delete" %}</a>
+	</div>
+	<div class="clear"></div>
+</div>
+<!-- end actions-box........... -->
+
+
+<!--  start paging..................................................... -->
+<table border="0" cellpadding="0" cellspacing="0" id="paging-table">
+<tr>
+<td>
+	{% if object_model.has_previous %}
+		<a href="?page=1" class="page-far-left"></a>
+		<a href="?page={{ object_model.previous_page_number }}" class="page-left"></a>
+	{% endif %}
+	<div id="page-info">Page <strong>{{ object_model.number}}</strong> / {{ object_model.paginator.num_pages }}</div>
+	{% if object_model.has_next %}
+		<a href="?page={{ object_model.next_page_number }}" class="page-right"></a>
+		<a href="?page={{ object_model.paginator.num_pages }}" class="page-far-right"></a>
+	{% endif %}
+</td>
+<td>
+</td>
+</tr>
+</table>
+<!--  end paging................ -->
+
+<div class="clear"></div>
+{%endblock%}
+
+{%block rigthside%}					
+<!--  start related-activities 
+<div id="related-activities">
+
+<!--  start related-act-top 
+<div id="related-act-top">
+<img src="{{THEME_STATIC_URL}}images/forms/header_related_act.gif" width="271" height="43" alt="">
+</div>
+<!-- end related-act-top 
+
+<!--  start related-act-bottom 
+<div id="related-act-bottom">
+
+	<!--  start related-act-inner 
+	<div id="related-act-inner">
+	
+		<div class="left"><a href=""><img src="{{THEME_STATIC_URL}}images/forms/icon_plus.gif" width="21" height="21" alt=""></a></div>
+			<div class="right">
+				<h5>Add another product</h5>
+				Lorem ipsum dolor sit amet consectetur
+				adipisicing elitsed do eiusmod tempor.
+				<ul class="greyarrow">
+					<li><a href="">Click here to visit</a></li> 
+					<li><a href="">Click here to visit</a> </li>
+				</ul>
+			</div>
+		
+			<div class="clear"></div>
+			<div class="lines-dotted-short"></div>
+		
+			<div class="left"><a href=""><img src="{{THEME_STATIC_URL}}images/forms/icon_minus.gif" width="21" height="21" alt=""></a></div>
+			<div class="right">
+				<h5>Delete products</h5>
+				Lorem ipsum dolor sit amet consectetur
+				adipisicing elitsed do eiusmod tempor.
+				<ul class="greyarrow">
+					<li><a href="">Click here to visit</a></li> 
+					<li><a href="">Click here to visit</a> </li>
+				</ul>
+			</div>
+		
+			<div class="clear"></div>
+			<div class="lines-dotted-short"></div>
+		
+			<div class="left"><a href=""><img src="{{THEME_STATIC_URL}}images/forms/icon_edit.gif" width="21" height="21" alt=""></a></div>
+			<div class="right">
+				<h5>Edit categories</h5>
+				Lorem ipsum dolor sit amet consectetur
+				adipisicing elitsed do eiusmod tempor.
+				<ul class="greyarrow">
+					<li><a href="">Click here to visit</a></li> 
+					<li><a href="">Click here to visit</a> </li>
+				</ul>
+			</div>
+			<div class="clear"></div>
+			
+		</div>
+		<!-- end related-act-inner 
+		<div class="clear"></div>
+	
+	</div>
+	<!-- end related-act-bottom 
+
+</div>
+<!-- end related-activities -->
+{%endblock%}
+
+{% block form %}
+<div class="clear"></div>
+<!-- start forms-container -->
+<div id="form-container">
+	<!-- start form -->
+	<form name="add_element" action="/econmet/{{verbose_model}}{% if id_to_edit %}/{{id_to_edit}}{% endif %}?page={{ object_model.number}}" method="post"> 
+		{% csrf_token %}
+		{% if id_to_edit %}
+			<input name="id" type="hidden" value="{{id_to_edit}}">	
+		{% endif %}	
+		<!--  start form-top -->
+		<div id="form-top">
+			<h2>{% if id_to_edit %} {% trans "Edit" %}  {% else %} {% trans "Add" %} {% endif %}{{title}}</h2>
+		</div>
+		<!-- end form-top -->	
+		
+		<!-- start form-bottom -->
+		<div id="form-bottom">
+			<!-- start form-inner --> 
+			<div id="form-inner">
+				<div class="element">
+					{% for field in fields %}
+						{% if not field.name == "id" %}
+							<div class="left"><h5>{{field.name|capfirst}} : </h5></div>
+							<div class="center">
+								<select  id="select_{{title}}_{{field.name}}" class="styledselect_form_1">
+									<option vlaue="">select ..</option>
+									{% for value in data|getkey:field.name %}
+										{% if value %}
+											<option value="" {% if value == object_element|getkey:field.name %} selected="selected" {% endif %}>{{value}}</option>
+										{% endif %}
+									{% endfor %}
+								</select>
+								<input name = "{{field.name}}" id="input_{{title}}_{{field.name}}" type="text" class="styledinput_form_1" tabindex="0" style="display: none">		
+							</div>
+							<div class="right">	
+								<img id="img_{{title}}_{{field.name}}" src="{{ THEME_STATIC_URL}}images/forms/icon_plus.gif" width="21" height="21" alt="_('Add a new {{verbose_model}} name value')" class="new_button">
+							</div>	
+						{% endif %}
+					{% endfor %}
+				</div>
+				<div class="clear"></div>
+			</div> 
+			<!-- end form-inner -->
+			<div id = "form-button">
+				<input id="submit-button" type="submit" value="" class="form-submit gotoleft" onclick="setValueToInput()"/>
+				<input id="reset-button" type="reset" value="" class="form-reset gotoleft"  />
+			</div>		
+		</div>
+		<!-- end form-bottom -->
+	</form>
+	<!-- end form -->
+</div>
+<!-- end form-container -->
+<script>
+	{% for field in fields %}
+		{% if not field.name == "id" %}
+			$("#img_{{title}}_{{field.name}}").click(function(){
+				if($('#select_{{title}}_{{field.name}}_input').is(':visible')){
+					$("#select_{{title}}_{{field.name}}_input").hide();
+					$("#input_{{title}}_{{field.name}}").show();
+					$("#img_{{title}}_{{field.name}}")[0].src="{{THEME_STATIC_URL}}images/forms/icon_edit.gif"
+				} else {
+					$("#select_{{title}}_{{field.name}}_input").show();
+					$("#input_{{title}}_{{field.name}}").hide();
+					$("#input_{{title}}_{{field.name}}")[0].value = "";
+					$("#img_{{title}}_{{field.name}}")[0].src="{{THEME_STATIC_URL}}images/forms/icon_plus.gif"
+				}
+			})
+		{% endif %}
+	{% endfor %}
+	$("#reset-button").click(function(){
+		{% for field in fields %}
+			{% if not field.name == "id" %}
+				$("#select_{{title}}_{{field.name}}_input").show();
+				$("#input_{{title}}_{{field.name}}").hide();
+				$("#input_{{title}}_{{field.name}}")[0].value = "";
+				$("#img_{{title}}_{{field.name}}")[0].src="{{THEME_STATIC_URL}}images/forms/icon_plus.gif"
+			{% endif %}
+		{% endfor %}
+		
+	})
+	function setValueToInput(){
+		{% for field in fields %}
+			{% if not field.name == "id" %}
+				if(document.getElementById('select_{{title}}_{{field.name}}_input').style.display!="none"){
+					var select_value = document.getElementById('select_{{title}}_{{field.name}}_input').value;
+					if(select_value != 'select ..'){
+						document.getElementById('input_{{title}}_{{field.name}}').value = select_value;
+					}  
+				}
+			{% endif %}
+		{% endfor %}
+	}
+	function getValue(title, name){
+		if(document.getElementById('select_'+title+'_'+name+'_input').style.display=="none"){
+			if(document.getElementById('input_'+title+'_'+name).value == "")
+				return null
+			return document.getElementById('input_'+title+'_'+name).value
+		} else{
+			return document.getElementById('select_'+title+'_'+name+'_input').value
+		}
+	}
+	function deleteElement(id){
+		if(confirm('{% trans "Are you sure you want to PERMANENTLY delete this" %} {{title}}?')){
+			if (id != ''){
+				url = "/econmet/{{verbose_model}}/"+id+'?page='+'{{ object_model.number }}'+'&delete=yes'
+				window.location.href = url;
+				return false;
+			}
+		}		
+	}
+	$(".action-edit").click(function(){
+		try{
+			var id_selected = $('input[name={{title}}]:checked')[0].id;
+			if (id_selected != ''){
+				url = "/econmet/{{verbose_model}}/"+id_selected+'?page='+'{{ object_model.number }}'
+				window.location.href = url;
+				return false;
+			}
+		}
+		catch(err){
+			alert('{% trans "You should select a" %}{{title}}');
+		} 		
+	})
+	$(".action-delete").click(function(){
+		if(confirm('{% trans "Are you sure you want to PERMANENTLY delete this" %}{{title}}?')){
+			var id_selected = $('input[name={{title}}]:checked')[0].id;
+			if (id_selected != ''){
+				url = "/econmet/{{verbose_model}}/"+id_selected+'?page='+'{{ object_model.number }}'+'&delete=yes'
+				window.location.href = url;
+				return false;
+			}
+		}
+	})
+	{% if id_to_edit %}
+		$('#form-container').show()
+	{% endif%}
+		
+</script>
+{% endblock %}

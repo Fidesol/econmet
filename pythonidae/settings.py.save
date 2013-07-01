@@ -1,0 +1,264 @@
+# -*- coding: utf-8 -*-
+__autor__ = "Jose Jiménez Lopez, Fundación I+D del Software Libre"
+__email__ = "jjimenez@fidesol.org"
+__date__ = "10/05/2012"
+
+# Django settings for fidesolCMS project.
+import os
+import django.conf.global_settings as DEFAULT_SETTINGS
+from django.utils.translation import ugettext_lazy as _
+
+# import the logging library
+import logging
+
+
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
+PROJECT_ROOT = os.path.abspath(SITE_ROOT)
+
+
+ADMINS = (
+    # ('Your Name', 'your_email@example.com'),
+    ('Jose Jiménez', 'jjimenez@fidesol.org'),
+)
+
+MANAGERS = ADMINS
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': 'pythonidae',                      # Or path to database file if using sqlite3.
+        'USER': 'root',                      # Not used with sqlite3.
+        'PASSWORD': 'root', #'fidesol',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+    }
+}
+
+# Local time zone for this installation. Choices can be found here:
+# http://en.wikipedia.org/wiki/List_of_tz_zones_by_name
+# although not all choices may be available on all operating systems.
+# On Unix systems, a value of None will cause Django to use the same
+# timezone as the operating system.
+# If running in a Windows environment this must be set to the same as your
+# system time zone.
+TIME_ZONE = 'Europe/Madrid'
+
+# Language code for this installation. All choices can be found here:
+# http://www.i18nguy.com/unicode/language-identifiers.html
+LANGUAGE_CODE = 'es-ES'
+
+SITE_ID = 1
+
+# If you set this to False, Django will make some optimizations so as not
+# to load the internationalization machinery.
+USE_I18N = True
+
+# If you set this to False, Django will not format dates, numbers and
+# calendars according to the current locale
+USE_L10N = True
+
+# Absolute filesystem path to the directory that will hold user-uploaded files.
+# Example: "/home/media/media.lawrence.com/media/"
+MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'static/uploads')
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash.
+# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+MEDIA_URL = '/static/uploads/'
+
+# Absolute path to the directory static files should be collected to.
+# Don't put anything in this directory yourself; store your static files
+# in apps' "static/" subdirectories and in STATICFILES_DIRS.
+# Example: "/home/media/media.lawrence.com/static/"
+STATIC_ROOT = ''#os.path.join(PROJECT_ROOT, 'static/')
+
+# URL prefix for static files.
+# Example: "http://media.lawrence.com/static/"
+STATIC_URL = '/static/'
+
+# URL prefix for admin static files -- CSS, JavaScript and images.
+# Make sure to use a trailing slash.
+# Examples: "http://foo.com/static/admin/", "/static/admin/".
+ADMIN_MEDIA_PREFIX = '/static/admin/'
+
+# Additional locations of static files
+STATICFILES_DIRS = (
+    # Put strings here, like "/home/html/static" or "C:/www/django/static".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    PROJECT_ROOT + '/static/',
+)
+
+# List of finder classes that know how to find static files in
+# various locations.
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = 'l$tvo5na8f6xg#+3r%pq=02wd&*7e3yvwnw0^@+4v9qct)ar$y'
+
+# List of callables that know how to import templates from various sources.
+TEMPLATE_LOADERS = (
+    'django.template.loaders.filesystem.Loader',
+    'django.template.loaders.app_directories.Loader',
+#     'django.template.loaders.eggs.Loader',
+)
+
+MIDDLEWARE_CLASSES = (
+    'django.middleware.common.CommonMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'lib.middleware.lang_change_dinamically.LangDinamicallyMiddleware',
+    
+)
+
+ROOT_URLCONF = 'urls'
+
+TEMPLATE_DIRS = (
+    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
+    # Always use forward slashes, even on Windows.
+    # Don't forget to use absolute paths, not relative paths.
+    PROJECT_ROOT + '/templates',
+    PROJECT_ROOT + '/templates/themes',
+)
+
+LOCALE_PATHS = (
+    PROJECT_ROOT + '/locale',
+)
+
+INSTALLED_APPS = (
+    'fluent_dashboard',
+    'admin_tools',
+    'admin_tools.menu',
+    'admin_tools.theming',
+    'admin_tools.dashboard',
+    'django.contrib.auth',
+	    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.sites',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    # Uncomment the next line to enable the admin:
+    'django.contrib.admin',
+    # Uncomment the next line to enable admin documentation:
+    # 'django.contrib.admindocs',
+    'cms',
+    'south',
+    'tinymce',
+    'rosetta',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = DEFAULT_SETTINGS.TEMPLATE_CONTEXT_PROCESSORS + (
+    'lib.context_processors.config_data',
+    'lib.context_processors.fixed_values',
+    'lib.context_processors.theme_info',
+    'lib.context_processors.plugins_menus',
+    'lib.context_processors.lang',
+    'django.core.context_processors.request',
+)
+
+# A sample logging configuration. The only tangible logging
+# performed by this configuration is to send an email to
+# the site admins on every HTTP 500 error.
+# See http://docs.djangoproject.com/en/dev/topics/logging for
+# more details on how to customize your logging configuration.
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': True,
+    'handlers': {
+        'mail_admins': {
+            'level': 'ERROR',
+            'class': 'django.utils.log.AdminEmailHandler'
+        },
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+        },
+        'file':{
+	    'level': 'INFO',
+	    'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+	},
+        'file':{
+	    'level': 'ERROR',
+	    'class': 'logging.FileHandler',
+            'filename': 'error.log',
+	},
+        
+    },
+    'loggers': {
+        'django.request': {
+            'handlers': ['mail_admins', 'file'],
+            'level': 'ERROR',
+            'propagate': True,
+        },
+    }
+}
+
+# TODO: check logs to file
+
+# vvvvvv   CMS settings    vvvvvvv
+
+# django-admin-tools settings
+ADMIN_TOOLS_THEMING_CSS = 'css/admin_tools_theming.css'
+
+# ADMIN_TOOLS_MENU = 'pythonidae.menu.CustomMenu'
+
+ADMIN_TOOLS_INDEX_DASHBOARD = 'fluent_dashboard.dashboard.FluentIndexDashboard'
+ADMIN_TOOLS_APP_INDEX_DASHBOARD = 'fluent_dashboard.dashboard.FluentAppIndexDashboard'
+ADMIN_TOOLS_MENU = 'fluent_dashboard.menu.FluentMenu'
+
+FLUENT_DASHBOARD_APP_GROUPS = (
+    (_('CMS'), {
+        'models': (
+            'cms.models.Page',
+            'cms.models.Menu',
+            'cms.models.Product',
+            #'cms.models.New',
+        ),
+        'module': 'CmsAppIconList',
+        'collapsible': False,
+    }),
+    (_('Configuration'), {
+        'models': (
+            'cms.models.Configuration',
+            'cms.models.FixedValue',
+            'cms.models.Language',
+        ),
+        'module': 'CmsAppIconList',
+    }),
+    (_('Administration'), {
+        'models': (
+            'django.contrib.auth.*',
+            #'django.contrib.sites.*',
+            'google_analytics.*',
+            'registration.*',
+        ),
+    }),
+)
+
+FLUENT_DASHBOARD_APP_ICONS = {
+    'cms/configuration': "images/admin/admin_configuration.png",
+    'cms/language': 'images/admin/admin_language.png',
+    'cms/menu': 'images/admin/admin_menu.png',
+    'cms/page': 'images/admin/admin_page.png',
+    'cms/product': 'images/admin/admin_product.png',
+    'cms/fixedvalue': 'images/admin/admin_fixedvalue.png',
+    'auth/user': 'images/admin/admin_user.png',
+    'auth/group': 'images/admin/admin_groups.png',
+}
+
+try:
+    import plugins_settings
+except:
+    logging.error('plugins_settings module not found')
+
